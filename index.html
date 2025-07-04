@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Senarai Nama Murid Tasmik 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 50%, #06b6d4 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Islamic Pattern Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            background-size: 100px 100px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        .header::before {
+            content: '📖';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            opacity: 0.8;
+        }
+
+        .header::after {
+            content: '🕌';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 28px;
+            opacity: 0.8;
+        }
+
+        .title {
+            font-family: 'Amiri', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        .islamic-quote {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
+        }
+
+        .quote-text {
+            font-size: 16px;
+            color: #1e40af;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-meaning {
+            font-size: 12px;
+            color: #3730a3;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .year-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .year-btn {
+            background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 25px 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: white;
+            font-size: 15px;
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+        }
+
+        .year-btn:hover {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
+        }
+
+        .year-btn.active {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border: 2px solid #1e40af;
+            color: white;
+            font-weight: 700;
+            transform: translateY(-2px);
+        }
+
+        .class-selection {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .class-selection.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .class-btn {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            border: none;
+            border-radius: 18px;
+            padding: 18px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: white;
+            font-size: 14px;
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .class-btn:hover {
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+        }
+
+        .student-list {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .student-list.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border: none;
+            border-radius: 15px;
+            padding: 15px 25px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .copy-btn:hover {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+        }
+
+        .students {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid rgba(148, 163, 184, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .student-name {
+            padding: 12px 0;
+            border-bottom: 2px solid rgba(148, 163, 184, 0.2);
+            color: #334155;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .student-name:last-child {
+            border-bottom: none;
+        }
+
+        .student-name::before {
+            content: '👤 ';
+            margin-right: 10px;
+            opacity: 0.8;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            font-size: 14px;
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #90EE90 0%, #98FB98 100%);
+            color: #2d5a2d;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .notification.show {
+            opacity: 1;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateX(-50%) translateY(-100%);
+            }
+            to {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #5a4fcf;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                margin: 0 10px;
+            }
+            
+            .year-grid, .class-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🎓 Senarai Nama Murid Tasmik 2025</h1>
+            <p class="subtitle">Sistem Pengurusan Nama Pelajar</p>
+        </div>
+        
+        <div class="content">
+            <div class="islamic-quote">
+                <div class="quote-text">✨ "Nurturing Ummah Through Recitation"</div>
+                <div class="quote-meaning">Pantau Kemajuan Bacaan Iqra' & Al-Quran</div>
+            </div>
+
+            <div id="yearSelection">
+                <div class="section-title">Pilih Tahun</div>
+                <div class="year-grid">
+                    <button class="year-btn" onclick="selectYear(1)">📚 Tahun 1</button>
+                    <button class="year-btn" onclick="selectYear(2)">📚 Tahun 2</button>
+                    <button class="year-btn" onclick="selectYear(3)">📚 Tahun 3</button>
+                    <button class="year-btn" onclick="selectYear(4)">📚 Tahun 4</button>
+                    <button class="year-btn" onclick="selectYear(5)">📚 Tahun 5</button>
+                    <button class="year-btn" onclick="selectYear(6)">📚 Tahun 6</button>
+                </div>
+            </div>
+
+            <div id="classSelection" class="class-selection">
+                <button class="back-btn" onclick="backToYears()">← Kembali</button>
+                <div class="section-title">Pilih Kelas</div>
+                <div class="class-grid">
+                    <button class="class-btn" onclick="selectClass('SIGMA')">🔸 SIGMA</button>
+                    <button class="class-btn" onclick="selectClass('BETA')">🔸 BETA</button>
+                    <button class="class-btn" onclick="selectClass('ALPHA')">🔸 ALPHA</button>
+                    <button class="class-btn" onclick="selectClass('KRIPTON')">🔸 KRIPTON</button>
+                    <button class="class-btn" onclick="selectClass('NEON')">🔸 NEON</button>
+                    <button class="class-btn" onclick="selectClass('HELIUM')">🔸 HELIUM</button>
+                </div>
+            </div>
+
+            <div id="studentList" class="student-list">
+                <button class="back-btn" onclick="backToClasses()">← Kembali</button>
+                <button class="copy-btn" onclick="copyNames()">📋 Salin Nama</button>
+                <div class="students" id="studentNames"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script>
+        let currentYear = null;
+        let currentClass = null;
+        let currentStudents = [];
+
+        // Sample student data
+        const studentData = {
+    "1": {
+        "ALPHA": [
+            "AINUL MARDHIAH BINTI MOHD SAFARIN",
+            "AISY RIZQI BIN MOHD HAZIM",
+            "AMIR ADLI BIN BUSTAMAM",
+            "AQEEL ANAQI BIN MUZAMZAM",
+            "ARIANNA ARISYA BINTI AZNOR AFFENDDY",
+            "CHE LUTH ILYAS BIN CHE MOHD IQRAM",
+            "HANA INSYIRAH BINTI AHMADZAMRI",
+            "MARYAM ZINNIRAH BINTI IBRAHIM",
+            "MEDDINA AAFIYA BINTI MARZAFUAN",
+            "MOHAMAD AFFAN BIN MOHAMAD SHAWAL",
+            "MUHAMMAD AATHIFF ZAYYAN BIN ZAINUDDIN",
+            "MUHAMMAD ADAM MIKAIL BIN SHAHRUL MUAZAM",
+            "MUHAMMAD ALFATEH BIN MOHD NAZRI",
+            "MUHAMMAD AQIL MIRZA BIN NASIRUDDIN",
+            "MUHAMMAD ARIQ FIRAS BIN ARIF AFIFI",
+            "MUHAMMAD ARSYAD BIN ARIPIN",
+            "MUHAMMAD HAALIQ BIN MOHAMMAD RIDZWAN",
+            "MUHAMMAD HAFIZ NAUFAL BIN CHE MOHAMAD",
+            "MUHAMMAD HARRAZ BIN MUHAMAD HAFIZ",
+            "MUHAMMAD HAZIQ NAUFAL BIN CHE MOHAMAD",
+            "MUHAMMAD IMAN ANIQ SEAH BIN MUHAMMAD NAJMI SEAH",
+            "MUHAMMAD IZZ RIFQI BIN MOHD AZIZAN",
+            "MUHAMMAD QAIZ AYMAN BIN MOHD HAFIZ",
+            "MUHAMMAD SHAKEEL RABBANI BIN SHAHRUL ISKANDAR SHAH",
+            "NAURA ALFASIHAH BINTI MOHD ALMIZAN",
+            "NUR AISYAH MEDINA BINTI KHAIRUL AZMAN",
+            "NUR AMANDA MIKAYLA BINTI MOHD LOKMAN",
+            "NUR AQILAH HUMAIRA BINTI MOHD HANAPIAH",
+            "NUR FALISHA IZZARA BINTI MOHAMAD FADHILAH",
+            "NUR NASUHA BINTI ABDUL RAZAK",
+            "NUR QAIREEN AULIYA BINTI MUHAMAD FAHMY",
+            "NUR RAISHA HANNAH BINTI NUR FATHULLAH",
+            "NUR YAZMIN DELAILA BINTI MOHD.IZWAN",
+            "SHARIFAH HUSNA BINTI SYED MUHAMMAD HAIDEL",
+            "TUAN ADRA AMANDA BINTI TUAN MOHD FIRDAUS",
+            "YASIR BIN MUHAMMAD HAZIQ"
+        ],
+        "BETA": [
+            "ABDUL BAASIT BIN AHMAD LUQMAN FIRDAUS",
+            "AHMAD HAKIMI BIN MOHD MAHADIR",
+            "AISHA MEDINA BINTI AHMAD RIDZUAN",
+            "AISY QAYYUM BIN SUHAIMI",
+            "ALICIA NAFEESA BINTI AHMAD FAIZAL",
+            "AMMARA IMAN BINTI AZMAN",
+            "ANIQ RAYQAL BIN HASEDI",
+            "AUFA ZUHAIRA BINTI MOHAMMAAD REDUAN",
+            "KAMELIA MEDINNA BINTI MUHAMMAD FAIRUZ ISKANDAR",
+            "KHAIRINA AZ ZAHRA BINTI MOHD AL IMRAN",
+            "MARYAM MIKAYLA BINTI MUHAMMAD MUSTAQIM",
+            "MU'ADZ AL FARUQ BIN MOHD KHOUSHAINI",
+            "MUHAMAD FATURRAHMAN BIN MUHAMAD SYAWAL",
+            "MUHAMAD NOAH BIN MOHD ARIFF",
+            "MUHAMMAD AQIL SAFWAN BIN HANAFFI",
+            "MUHAMMAD ARIQ IZZAT BIN MOHD HAMDAN",
+            "MUHAMMAD HABIB BIN MOHD SABRI",
+            "MUHAMMAD HARITH WAFIY BIN ROSLAN",
+            "MUHAMMAD HAZIM BIN JOHANIS ADI SATRIA",
+            "MUHAMMAD IMAN FIRDAUS BIN HAMIR",
+            "MUHAMMAD LUQMAN NUL FIRDAUS BIN MOHD AZREN",
+            "MUHAMMAD NAQEEB DZAFRI BIN MOHD RADZI",
+            "MUHAMMAD RAYYAN BIN SAHLAN",
+            "MUHAMMAD SALMAN FARIS BIN MOHD FAIZ",
+            "MUHAMMAD SHAUQI IRFAN BIN MOHAMAD SHUKRI",
+            "MUHAMMAD UMAR EDRUCE BIN ASRUL EFFENDI",
+            "NAURA AZZAHRA BINTI MUHAMMAD FARAHAN",
+            "NOR AAIN IZZATY BINTI MUHAMMAD SYURAHBIL",
+            "NUHA INSHA ZULAIKHA BINTI MUHAMAD SYAFIQ",
+            "NUR AISYAH DAHLIA BINTI MOHD RAFI",
+            "NUR NAURA NAYLA BINTI MOHD ZARUL AZRAN",
+            "NUR ZAHRA AUNI BINTI MUHAMMAD ZAIRI",
+            "NUR ZUHAIRA BINTI MOHD FAIZAL",
+            "NURUL ARISHAH BINTI AHMAD SYAAMIL",
+            "NURZAURA KHAYRA BINTI MUHAMMAD FIKKRI",
+            "RAISSA SOFFIYA BINTI SAIFUL ANIZAM",
+            "SYED IDREES MOHDHAR BIN SYED AMEERUL SHAFIQUE",
+            "UMMU MARDHIAH BINTI MOHAMAD ZANISAHLI AZIZI",
+            "WAZIF UKAIL BIN ALIF BAZLI"
+        ],
+        "KRIPTON": [
+            "AALI IMRAN BIN MOHD HAFIZ",
+            "ABDUL MATEEN BIN MOHD.RIDZUAN",
+            "ADAM IRSYAD BIN AZIZUL",
+            "ADEL MIKAEL BIN MOHAMMAD FAKHRUL RAZI",
+            "AHMAD KHALID BIN MOHD SYAHIDAN",
+            "AINUL HANAN BINTI JALUDIN",
+            "ALIF ANAQI BIN ABD HALIM",
+            "AMEENA ROSE BINTI MUHAMMAD KHAIRUL ARIF",
+            "AMMAR HAMMANI BIN MOHAMMAD HATTA",
+            "AYDINA SYAYYIRA BINTI MOHD SYAFA AZWAN",
+            "AYRA DELISYA LEAW BINTI MIKAIL LEAW WAI LOON",
+            "DAHLIA NUR MEDINA BINTI MOHAMMAD AZIZUL",
+            "DHUHAA ADHWA BINTI FAKHRUL RIDHUAN",
+            "ERIKA MARISSA BINTI MOUSWARI",
+            "HANA SOFIA BINTI MUHAMMAD HAKIM",
+            "HANAN BINTI MUHAMMAD HAFIZ",
+            "HAYYAS MIKHAIL BIN MOHD HAFIZ",
+            "IZZARA NUR RAISYA BINTI IZZUDDIN",
+            "MIA ZULAIKHA BINTI MUHAMMAD ZULAKHMAL HAKIM",
+            "MOHAMAD HILMAN HAKIM BIN MOHAMAD FAIRUS",
+            "MUHAMMAD AMMAR BIN MOHD HILMI",
+            "MUHAMMAD ASQALANI BIN MOHD ASRI",
+            "MUHAMMAD LUTH HEIDI BIN IRWAN",
+            "MUHAMMAD NAUFAL BIN MUHAMMAD NABIL FIKRI",
+            "MUHAMMAD RAQIB AL-KAREEM BIN REDZUAN",
+            "MUHAMMAD UMAR FAYYADH BIN MOHD HEDZUAN",
+            "NUR AAIRA QISTEENA BINTI MUHAMAD QAMAR",
+            "NUR ARRIANA BINTI MOHAMMAD ADIB",
+            "NUR AYRA SAFIYA BINTI MOHD ALIF",
+            "NURA AULIYA BINTI MUHAMMAD AIDIL",
+            "NURSHAMILA SAFIYA BINTI MOHD SAFFUAN",
+            "NURUL HAFIYA BINTI MOHD HALIM",
+            "NURZARITH SORAYA BINTI MUHAMMAD RIDZWAN",
+            "QHAIRA ATIYAA BINTI AZRUL HISYAM",
+            "RAZ UMAR AZHAD BIN RAZMIN SYAHMI",
+            "SHAREEFA AAIRA QHADEEJA BINTI SHEIKH SALLADDEEN A'L SHIBLI",
+            "SHARIFAH KHADIJAH BINTI SYED FAISAL",
+            "YUSOFF BIN MOHAMAD AZAHAR",
+            "YUSUFF BIN MUHAMMAD AMIRUL"
+        ],
+        "HELIUM": [
+            "ADAM HARITH ILMAN BIN MOHD HARIS",
+            "ADIB RAYYAN BIN EMIYUSRI",
+            "AHMAD LUQMAN HAKIM BIN D.ZULKIFLI",
+            "AQIRA NASUHA BINTI MOHAMMAD FIRDAUS",
+            "AULIA IZZATUNNISA BINTI HAIRIL",
+            "HALIM ZAKARIA BIN KRISMANTO",
+            "KAYYISAH NAYYARA BINTI NOR MOHD JOHARI",
+            "MIA SOFEA ARISSA BINTI MOHD MOHSEIN",
+            "MOHAMAD RAYYAN REZWAN BIN MOHAMAD IBTIKHWAN",
+            "MUHAMAD FAKHRIE RAZIN BIN MUHAMAD YUNUS",
+            "MUHAMAD RAMADHAN MIKAIL BIN ZULHILMI AIMAN",
+            "MUHAMMAD ADAM HAIKAL BIN NASARUDIN",
+            "MUHAMMAD AFY AMSYAR BIN MOHD FIRDAUS",
+            "MUHAMMAD AMMAR YUSSOF BIN MOHD HAFISZUDIN",
+            "MUHAMMAD ANAS NAIM BIN MUHAMMAD FAIZ",
+            "MUHAMMAD DANISH ANAQI BIN MUHAMMAD KHAIRUL",
+            "MUHAMMAD FALEEQ ANAQI BIN MOHD SHAFIQ",
+            "MUHAMMAD FAYYADH SUHAIL BIN MOHD KHAIRUL KHAIRI",
+            "MUHAMMAD UMAR IFWAT BIN AZLAN",
+            "MUHAMMAD ZUFAIRY BIN ZAIRUL IRWAN",
+            "NAFISAH HANNAH BINTI MOHD ZULHILMI",
+            "NAUFAL MIKAEL BIN NORNAIM",
+            "NOOR QAIRAH AFFIEYAH BINTI KHAIRUL IZWAN",
+            "NOR AYEESHA BINTI AHMAD FAEEZ",
+            "NUR 'AFRA' QORIRAH BINTI AMIERUL IZZUDDIN",
+            "NUR ALIAH SHAHIRAH BINTI ABDULLAH",
+            "NURUL HUDA BINTI MOHD HAIROL",
+            "NUUR DELISHAH DINI BINTI NUUR AZHIIM",
+            "RACHEL RAIHANA BINTI MOHD EFAD",
+            "SHAH AQEEF ANAQI BIN SHAH ADLI",
+            "SITI KHADIJAH BINTI FARIZAL",
+            "SITI NUR SAFIYYAH BINTI MOHD HAFIZ",
+            "SOFFEYA HANAA BINTI HUSSIEN",
+            "TIA AURORA BINTI MOHD SHAHRIL",
+            "UMAR BIN AMIRUL NAZRIN"
+        ],
+        "NEON": [
+            "ADAM DARWISH BIN KHAIRUL AFENDY",
+            "AHMAD IQBAL HADIF BIN AHMAD ISMAIL",
+            "AHMAD NAUFAL BIN SYAABANUL SYAFIQ",
+            "AHMAD ZHARIF BIN MOHD. MUNIB SIDQI",
+            "FAITH HANA CAMILA BINTI MOHAMAD NAZRIN",
+            "FARAH NURSYAHIRAH BINTI MUHAMAD SYUKRI",
+            "HANNAN AISYAH BINTI ASLIZAL",
+            "HAYYAN RIFQI BIN MOHD NIZAM",
+            "IRENE KEISYA SABRINA BINTI KAMARULZAMANI",
+            "MARYAM SARAH BINTI SHAMSULNIZAM",
+            "MOHAMMAD ARIQ HARRAZ BIN HAIRRIS",
+            "MUHAMAD AISY ANAQI BIN RUZAIDI",
+            "MUHAMAD LAZIM AZHAD BIN MOHD FAIZUL",
+            "MUHAMMAD AIMAN NAUFAL BIN SHAFIE",
+            "MUHAMMAD AQIL BIN MUHAMMAD'AZIM",
+            "MUHAMMAD IRFAN BIN MUHAMAD SHAKIRIN",
+            "MUHAMMAD NURIEZZAM SYAH BIN AXZEROL NIZAM",
+            "MUHAMMAD QAYYUM BIN NORHAFSHAM",
+            "MUHAMMAD UKASYAH BIN MUHAMMAD HAKIMI",
+            "NOAH MIKAEL BIN MUHAMMAD HELMI",
+            "NUH NAUFAL BIN MOHD NAWIR",
+            "NUR ANGGUN SYAHIDA BINTI MUHAMMAD SYAHRIL",
+            "NUR ARIANA HUMAIRA BINTI MUHAMMAD SYAFIQ",
+            "NUR IMANI NASUHA BINTI ABDULLAH",
+            "NUR KHALISHAH NAILAH BINTI HAIRI",
+            "NUR QASEH HUMAIRA BINTI MOHAMAD",
+            "NUR SUMAYYAH AZZAHRAH BINTI SHAMSUL BADRI",
+            "NUR SYIFA BINTI FAISAL",
+            "PUTERI QUR'RATU AISYAH BINTI ABDUL MALIK",
+            "RAYNA IZZ ZEEYA BINTI MOHD RIDZUAN",
+            "RUMAYSAA' BINTI NURUL AIZAM",
+            "SARAH JASMINE BINTI MOHAMAD HAFIZ",
+            "SORAYA BINTI KAMARULZULFEKHA",
+            "SYAZWI ARIF BIN SAHRUL ANUAR",
+            "TENGKU FARAH ATHEA BINTI TENGKU MOHD FARIZAL",
+            "UFAIRAH ELHAM BINTI ABDUL RAHMAN",
+            "UMAIR FAHAD BIN FAIZAL",
+            "ZAVIERA SOFEA BINTI MOHD ZAIDI"
+        ],
+        "SIGMA": [
+            "ABDULLAH RIZQI BIN ABDUL QAYYUM",
+            "ADAM ADHAM BIN MOHD SAIFUL ADLI",
+            "AHMAD AFEEF HAIKAL BIN ZAMRI",
+            "AHMAD HUZAIFAH BIN MOHD HAZIQ",
+            "AULIA UFAIRA BINTI SUHAIRI",
+            "DAHLIA RAISSA BINTI MUHAMAD FAUZI",
+            "DANIYAL HAIQAL BIN MAZLAN",
+            "DHIA CLARISSA SOFEA BINTI ABDUL MUHAYMIN",
+            "MARYAM HUSNA BINTI AHMAD FADLY",
+            "MUHAMMAD AMMAR HAZIQ BIN MOHAMAD NAIM",
+            "MUHAMMAD ANAS HAKIMI BIN AMIRUDIN",
+            "MUHAMMAD ARIQ FIRDHAN BIN MUHAMMAD AZWAN",
+            "MUHAMMAD ARYAN ALTAMIS BIN MOHD RASHID",
+            "MUHAMMAD EDRY NAUFAL BIN MAULUDIN NOOR",
+            "MUHAMMAD FARIS WAIZ BIN MUHAMMAD FARIZAT",
+            "MUHAMMAD HARRAZ BIN MOHD KHAIRY",
+            "MUHAMMAD QAIM RAIQAL BIN MUHAMMAD HAMIDI",
+            "MUHAMMAD SAIFADHIL BIN MOHD SAUFI",
+            "NEDIM BIN ZAIMI",
+            "NIK FAIQ QAIREEN BIN NIK MOHD FIRDAUS",
+            "NOR AINA SUMAYYAH BINTI AMYRUDDIN SHAH",
+            "NUR ADELIA UMAIRAA BINTI MOHD FAISAL",
+            "NUR ADRIEANA BATRISYA BINTI MOHD EZZUANDY",
+            "NUR AMEERA JANNAH BINTI MOHD ABSHAR",
+            "NUR AUNI NUHA BINTI NOORIZWAN",
+            "NUR HANANIA ALISHA BINTI MUHAMAD KHAIRIL AZWAN",
+            "NUR MARDHIAYANA BINTI MAZLAN",
+            "NUR NAURA SAFIYYAH BINTI MUHAMMAD AZIZI",
+            "NUR SHERYNA SHAQIERA BINTI MOHD ALIFF HAZIDI",
+            "NURUL HANNAN BINTI MOHD NAJIB",
+            "TUAH MUHAMAD FAYYADH BIN MUHAMAD ABDUL BASID",
+            "UMAR ARFFAN BIN SHAZZUAN",
+            "ZAFRAN DANISH BIN MD FAIZAL"
+        ]
+    },
+    "2": {
+        "ALPHA": [
+            "ADAM ZIYYAD BIN MUHAMMAD SYHAMIEL IQHWAN",
+            "ADRA HANA ZHAFIRA BINTI AZROL",
+            "AHMAD AZRIEN FIRAS BIN MOHD YUSRI",
+            "AHMAD ZAHIN BIN AHMAD FAIRUZ",
+            "AMANDA RAISYA BINTI MOHD HAIRUL ANUAR",
+            "AMSYAR DANISH BIN MAHADIR",
+            "AUNI AATHIFA AQEELA BINTI ZAINUDDIN",
+            "AWAL ARSYAD BIN MOHD HAMDHAN",
+            "FATIH MIKAEL BIN SOFHIAN",
+            "HARAZZ QAYL ZHAREEF BIN HANAFI",
+            "HARITH ARSYAD BIN ASRUL AFFANDI",
+            "HARITH MUQRI BIN KHANAFIAH",
+            "HAWA YASMEEN BINTI AZIZ",
+            "IFFAT SYARIF BIN MUHAMAD NORIZAN",
+            "KHAYRA WAFIYA BINTI AZUE ALFIZAN",
+            "LUTH HAFIY BIN MUHAMAD AIMAN",
+            "MUHAMMAD ASYRAF BIN MOHD NASIR",
+            "MUHAMMAD FARISH BIN AHMAD FIKRI",
+            "MUHAMMAD HADIF NUQMAN BIN MOHD REDUAN",
+            "MUHAMMAD HAFIY HAIKAL BIN HANIPAH",
+            "MUHAMMAD IRFAN DAYYAN BIN MUHAMMAD TAUFIK",
+            "MUHAMMAD IYAD WAIZ BIN ABDUL HADI",
+            "MUHAMMAD YUSUF BIN SOFIAN",
+            "MU'IZZ AR-RAYYAN BIN MUAZZAM",
+            "NOAH SYAZANEE BIN AHMED SYAH RUNNIDZAR",
+            "NUR AAMILY HUMAYRAA BINTI ASHAR",
+            "NUR AFIYAH HUSNA BINTI MOHD KAMARUL HAFIZ",
+            "NUR AMRA HERLEYNA BINTI AMER SAFFUAN",
+            "NUR ARISSA FAIHA BINTI MOHD ZAMRI",
+            "NUR AYRAA HAFYA BINTI ROHAIZI",
+            "NUR HEYRICA ADREENA BINTI HAIRUL AZAHAR",
+            "NUR NAAILA ZAHIRAH BINTI AZRAF",
+            "NURUL HANA BINTI MOHD SABRI",
+            "NURUL HANAN BINTI MOHD SABRI",
+            "NURUL SUMAYYAH BINTI MUHAMMAD SULAIMAN",
+            "SAFRA QHALISSYA BINTI HELMY",
+            "SARA FARZANA BINTI MUHAMMAD HAZWAN"
+        ],
+        "BETA": [
+            "ADAM NAQIB BIN AZHAR",
+            "ADEEB BIN MOHD SAIPUL ASRAFI",
+            "AHMAD YUSUF BIN MOHD HANIF",
+            "AJWA BINTI ASRUL FAHMI",
+            "ALISYA AZZAHRA BINTI MOHD HELMI",
+            "ALIYA SARA ARIANA BINTI MOHD LOKMAN",
+            "AMMARA IRDINA BINTI MOHD FAIZAL",
+            "ANAS MIKAEL BIN ABDUL HALIM",
+            "ARYANA SUMAYYAH BINTI ABAS",
+            "AYRA BINTI ASRUL FAHMI",
+            "HANI KHAYLA BINTI MOHD FAIZAL",
+            "HILAL AMSYAR HAQ BIN ABD HILAL ADZMAN",
+            "JANNATU SAUQIYA BINTI ABDUL RAHMAN",
+            "KHAIRUNNISA' WAFIYYA BINTI MOHD NOH",
+            "MUHAMAD HUD BIN MOHD ARIFF",
+            "MUHAMAD IYAD DARWISY BIN MUHAMAD DANIAL",
+            "MUHAMMAD AARIZ HAFIY BIN MOHD HAIRI AFFENDY",
+            "MUHAMMAD ADEL BIN MUHAMAD HANAPI",
+            "MUHAMMAD ADLI BIN ADI ANHAR",
+            "MUHAMMAD ARYAN BIN IBRAHIM",
+            "MUHAMMAD ESHAN MISHARY BIN AZIZOL",
+            "MUHAMMAD FIRASH BIN MOHAMAD IZZUDDIN",
+            "MUHAMMAD HARITH DARWISY BIN MOHAMAD ADZHAR",
+            "MUHAMMAD MU'MIN BIN MUHAMMAD MUHSIN",
+            "MUHAMMAD RAIF DANIAL BIN MOHD RAFIQ",
+            "MUHAMMAD SAQEEF AISY BIN MOHAMAD SAUFI AMEER",
+            "MUHAMMAD ZAID ZAKWAN BIN MOHD ZAMRI",
+            "NIK HAYFA ALAINA BINTI NIK MOHD SAM",
+            "NOUREEN ANEISHA BINTI MOHAMMAD ANIS",
+            "NUR AIRA ADRINA BINTI SHARUL IMAN",
+            "NUR FARHANAH BINTI MUHAMAD HILMI",
+            "NUR FATIN SYAQIRAH BINTI ABDUL RAHMAN",
+            "PUTRI ADRINA ZAHRA BINTI AHMAD RAHIMI",
+            "SAIF AHMAD KHALED BIN MUHAMMAD HAZIM",
+            "TENGKU AISY HAFIY BIN TENGKU AKHTARUL HASSAN",
+            "UHAYLAA' MUMTAZ BINTI ZULHILMI",
+            "WAN NUR RAUDHATUL AISYAH BINTI WAN MOHD RIDZUAN",
+            "YUSUF BAIHAQI BIN MOHAMAD HAFIZ"
+        ],
+        "KRIPTON": [
+            "AHMAD RIFAAT BIN MOHD RAZMIEN",
+            "AHMAD SYAHMI BIN AHMAD FITRI",
+            "AIN HAFIZAH BINTI MOHD HAFIZ",
+            "AISY MARYAM BINTI SHAHNIZAN",
+            "ALYSA AZZAHRA BINTI MUHAMMAD MARWAN",
+            "AMIRAH HUSNA BINTI ZAIRUL AIZAN",
+            "ANNUR NAFEESA BINTI AZMAN",
+            "AZAD FARIS BIN MUHAMMAD SYAHID",
+            "KHAYLA UMAYRAH BINTI ABDUL SABUR",
+            "KHAYRA AILEEN BINTI KAMAL ARIFFIN",
+            "LILY ALTHEA ADRIENNE BINTI MOHD SYARIZAL",
+            "MILLIY FIRRAH BINTI MOHAMED FIRDAUS",
+            "MOHAMAD FIRASH HAYYAN BIN MOHAMAD HASBULLAH",
+            "MUHAMMAD AMIN RIFQI BIN MOHAMMAD NAFIS",
+            "MUHAMMAD ANAQI AYMAN BIN MOHD IZZUANDI",
+            "MUHAMMAD ASHRANI DANIAL BIN MUHD HAKIM",
+            "MUHAMMAD BIN IDZWAN NIZAM",
+            "MUHAMMAD FAIQ MALEEQY BIN MOHD HAIREE ISMAIL",
+            "MUHAMMAD IRFAN BIN NOORAMIN",
+            "MUHAMMAD IZZUL HAQ BIN MOHD ZAMRI",
+            "MUHAMMAD NAQIUDDIN BIN NOR JEFRI",
+            "MUHAMMAD NAUFAL BIN MUHAMMAD NAIM",
+            "MUHAMMAD SYAMIL FAIZ BIN SHAHRIR",
+            "MUHAMMAD UWAIS BIN MOHD RASHID",
+            "MUHAMMAD YUSUF DANIAL BIN MOHD SHAZREEN",
+            "NATRAH BINTI MOHD DZULHALMI",
+            "NUR MAHYA BINTI MAZWAN",
+            "NUR ZAHRAH SOFEA BINTI ANUAR RUSSHAHIR",
+            "NURSHANIA SAFIYA BINTI MOHD SAFFUAN",
+            "NURUL IIS NAIRA BINTI ISNIN",
+            "PUTERA NAUFFAL HARRAZ BIN SYAZRUL AMIN",
+            "SYAQEEF AYRELL BIN MOHD SUNNY",
+            "UMAR YUSUF BIN MOHD REDZUAN"
+        ],
+        "HELIUM": [
+            "AARIQ DANISH BIN SUHAIMI",
+            "AIMAN HANAN BINTI ZAINAL ABIDIN",
+            "ALFIY IRSYAD BIN MOHD AZMIR",
+            "AQIL HARRAZ BIN AHMAD FAIRUZS",
+            "ARIANA DELISHA BINTI MOHD HAFFIZ",
+            "ARIQ AMSYAR BIN AHMAD HASANUDDIN",
+            "AYISHA HANNAH DELISHA BINTI ABDUL SALAM",
+            "DAYANG NADIRA BINTI JOHARI",
+            "ESHAL KAISARA CASINILLO BINTI ROLANDO",
+            "HYDER ALI BIN DZULFIQAR",
+            "MOHAMMAD AR RAYHAN BIN ZAINUDDIN",
+            "MOHD YUSUF ZAHIN BIN MOHD KHAIRI",
+            "MUHAMMAD AFFAN BIN MOHD HANAFFI",
+            "MUHAMMAD AIDIL PUTRA BIN MUHAMMAD MUSTAQIM",
+            "MUHAMMAD AISY NAWFAL BIN MOHD FIDAUS",
+            "MUHAMMAD AL WASIM BIN ABDUL RAUF",
+            "MUHAMMAD AMMAR MATEEN BIN MOHD NAZRI",
+            "MUHAMMAD AMSYAR IQBAR BIN MOHD FAIRUZ AKHBAR",
+            "MUHAMMAD AMSYAR KAMIL BIN MOHD NIZAM",
+            "MUHAMMAD ATIF ASYRAF BIN MOHD TAUFIQ ASRAF",
+            "MUHAMMAD LUTHFI ATHA' BIN NOR ZALANI",
+            "MUHAMMAD NAQIUDDIN BIN MOHD NAZRI",
+            "MUHAMMAD NOR HAZIM BIN MUHAMMAD NORHISHAM SHAFIE",
+            "NOR AFFIA HAURA BINTI NOR NASRUNL",
+            "NOR AINA SOFIA BINTI AMYRUDDIN SHAH",
+            "NUR AYUNI SYAQIRAH BINTI MAT PAUZI",
+            "NUR ISKANDAR MUAZAM PUTRA BIN SHAHRUL ALFIAN",
+            "NUR KHALISHA INARA BINTI MOHAMAD HANAFI",
+            "NUR SALSABILA BINTI SHUZAIMEE AIDY",
+            "NUR SOFEA DHUHA BINTI KHAIRUL IDZWAN",
+            "NURUL NAFIZA NAURAH BINTI MAZLI AZAMUDIN",
+            "PUTRA MUHAMMAD MURSI BIN MD ROZAMAN",
+            "RUI EZARA BINTI ROHAIZON",
+            "SITI SAFIYAH BINTI MOHAMMAD SAIFUL IZUAN",
+            "WAN ADELEA BINTI WAN BE DEE",
+            "ZAHRA SOFEA BINTI MUSTAFFA",
+            "ZARIEF DANIEL BIN MD FAIZAL"
+        ],
+        "NEON": [
+            "AFINA ARIANA BINTI AKMAL",
+            "AHMAD AIMAN BIN AMIRUL JOHN",
+            "AHMAD AMIRUL AIDEEN BIN AHMAD HAZREEQ ADAM",
+            "AIDIL ZIQRI BIN ANUARRIDUAN",
+            "ALIYYAH FAQIHAH BINTI AZRUL NIZAM",
+            "ARISSA RAISHA BINTI MOHD MARUAN",
+            "AULIYA FARZANAH BINTI MUHAMMAD AMSYAR",
+            "AUNI BINTI MUHAMMAD ASYRIN",
+            "CHANTIQ NUR AULIYA MIQAILA BINTI MOHD NOR RIEZUAN",
+            "DANI MUAYYAD BIN MOHD NAZRUL HELMI",
+            "DHUHA SOFIA BINTI MOHAMAD AFIFI",
+            "EZANEE SHAKIR BIN MOHD EZWIN AZRAAI",
+            "HANI SOFIA BINTI SHAMSULNIZAM",
+            "HANNAH ZUHAIRA BINTI MOHD NAJMI",
+            "KEISHA AMANDA BINTI MOHD HAFIDZ",
+            "KHAIREEN AINA AYDINA BINTI KHAIZULMI",
+            "LUQMAN HAKEEM BIN NOR KAMAL",
+            "MIKAYLA DIANDRA BINTI MUHAMMAD AMIRRUDIN",
+            "MOHAMAD ADAM HARITH BIN MOHAMAD ASHRAF",
+            "MUHAMMAD ADDIB LEKIU BIN MOHD. SHARILL",
+            "MUHAMMAD AFNAN RAFIQ BIN NORAZAM",
+            "MUHAMMAD ARFA ZIKRI BIN MOHD RAHMAD",
+            "MUHAMMAD ARFAN DAYYAN BIN SASAKUL AFFENDI",
+            "MUHAMMAD HASEEF BIN MOHD FAUDZI",
+            "MUHAMMAD HAZIQ BIN MUHAMAD HAFIZ",
+            "MUHAMMAD KHAIRUNNIYAZ BIN MUHAMMAD AHSWAR",
+            "MUHAMMAD QEZA ARAMI BIN MOHD SYAFIQ",
+            "MUHAMMAD ZAFEER ZAYYAN BIN MUHAMMAD ZAHARI",
+            "MUHAMMAD ZARIF NAUFAL BIN ZURAIMI",
+            "NOOR ANNASYA MEDINA BINTI ARMAN",
+            "NUR AISYAH BINTI MOHD NIZAM",
+            "NUR FALISHA UMAIRAH BINTI MOHAMAD FAZZIL",
+            "NUR HANNANI ARFAH BINTI FAHMY HADRY",
+            "NUR IRDINA SAFIYYAH BINTI NORSHAHRIZAM",
+            "NURSUMAYYAH BINTI MOHD SAIFUL",
+            "SHARIFAH ADAWIYAH ALHABSHI BINTI SYED ABDUL RAHMAN",
+            "UMAR NAUFAL BIN RAFEEQ",
+            "YUSUFF SAIF BIN HAZIL"
+        ],
+        "SIGMA": [
+            "ADDINDA NUR AFSHEEN BINTI AMIR NORDDIN",
+            "AHMAD UZAIR BIN MOHD HANIF",
+            "AINA SOFIA BINTI HANAFFI",
+            "AISY RIZQI BIN MUHAMMAD AFIQ",
+            "ASMA' SAAFIYAH BINTI MUHAMMAD KHIDIR",
+            "AUNI ALEEYA BINTI MOHD ASYRAF AZRANEE",
+            "AYRA HUSNA BINTI ZAMEROL",
+            "DHIA AAIRA DARISA BINTI MOHD AZURIN",
+            "HARIS AIMAN BIN AHMAD FUAD",
+            "MOHAMMAD ADAM BIN IZWAN",
+            "MOHAMMAD ARRIAN BIN MOHAMMAD ADIB",
+            "MUHAMMAD AAKIF BIN AMIR",
+            "MUHAMMAD AKIF ZAFRAN BIN ABDUL RAHIM",
+            "MUHAMMAD ARIQ ISKANDAR BIN MOHD SAUFI",
+            "MUHAMMAD FIRASH RIFQY BIN FAIQ ASNAWI",
+            "MUHAMMAD HAZIM BIN NORAZMI",
+            "MUHAMMAD IMAN NAUFAL BIN MOHD ZAID",
+            "MUHAMMAD IZZ ZHAREEF BIN MOHD SAAD",
+            "MUHAMMAD MIKAIL BIN MUHAMMAD AZHAR",
+            "MUHAMMAD THAQIF BIN BADRIN NIZAM",
+            "MUHAMMAD THARIQ AIDAN BIN MOHD TAUFIQ",
+            "MUHAMMAD UMMAR QAUSAR BIN MOHD ADIB",
+            "MUHAMMAD ZAHRIN ADHA BIN MOHD.IZWAN",
+            "NAUFAL AMSYAR BIN SALAMULAMIN",
+            "NUR AAFIYAH HUSNA BINTI MOHD AZMIR",
+            "NUR AIN FATEHHAH BINTI MOHD FARID",
+            "NUR AIRIS MEDINA BINTI SUSALLIZAL",
+            "NUR AZFAR HUSNA BINTI MOHD ROSDI",
+            "NUR IZZARAH BINTI JAFFREE",
+            "NUR KHAYLA AZZALEA BINTI KHAIRUL AMAR",
+            "NUR MIKAYLA ADNI BINTI HASHIM",
+            "RAYHAN ARYAN BIN MOHD EFAD",
+            "RAYYAN MIKHAIL BIN TAJUL MOLOK",
+            "SALMAN BIN MUHAMMAD HAZIQ",
+            "SITI KHADIJAH BINTI MUHAMMAD KHAMAL",
+            "UMMAR FAYYADH BIN MOHD JEFRI"
+        ]
+    },
+    "3": {
+        "ALPHA": [
+            "ADAM NAUFAL BIN SUHAIMI",
+            "AINUL MARDHIAH BINTI HAFIY",
+            "AIRIS AZZAHRA BINTI MOHD RIZAL",
+            "AISYAH AL HUMAIRA BINTI MUHAMMAD SHAH AL-MUZAMMIL",
+            "ALISHA ZULAIKHA BINTI AHMAD HELMI",
+            "AMNI SOFEA BINTI ABU HANIFAH",
+            "BATRISYA UFAIRAH BINTI ROSHAIDI",
+            "ED IMAN ESHAN BIN ED ZIKRILLAH",
+            "HARRAZ MUQRI BIN MOHAMAD ZAID",
+            "ILHAM TIHANI BINTI MOHD IZHAR",
+            "MARYAM AS-SOFEA BINTI MOHD FAIZAL",
+            "MARYAM FALAQ BINTI MOHD KHAIRY",
+            "MEDINA ZAHRA BINTI AHMAD SYUBLI",
+            "MUHAMMAD ADAM ANAQI BIN MOHD HAZRIL",
+            "MUHAMMAD ADAM BIN MUHAMMAD SYURAHBIL",
+            "MUHAMMAD ADAM HARRIS BIN MOHD RAFI",
+            "MUHAMMAD AFFAN NAUFAL BIN ABU BAKAR",
+            "MUHAMMAD HARRAZ NAUFAL BIN SAIPULLIZAM",
+            "MUHAMMAD KHOLID RIZQY BIN KHAIRUL",
+            "MUHAMMAD NAZRIL RAYKAL BIN MOHAMAD NAZERIN",
+            "MUHAMMAD QARITH AIDAN BIN MOHD MULHAZZA",
+            "MUHAMMAD RIYADH ESHAN BIN MOHD KHAIRUL",
+            "MUHAMMAD SYAUQI BIN MUHAMMAD SUBHI",
+            "MUHAMMAD ZHARFAN ILMAN BIN MOHD HARMONI",
+            "NAUFAL HAZYQ BIN HASRIZAL",
+            "NUR AZMYA BINTI MOHAMAD",
+            "NUR DHIA RASYIQAH BINTI ZAIDI",
+            "NUR HANNAH UFAIRAH BINTI HADI",
+            "NUR INSYIRAH BINTI MOHD TAUFIQ",
+            "NUR JANNAH BINTI SULONG",
+            "NUR RANIA ZALIKHA BINTI MUHAMAD ZURAIMIE",
+            "NUR SUMAYYAH QUIBAN BINTI MOHD ASHRAF",
+            "NUREEN UMAIZA BINTI CHE ADLI",
+            "NURFATHIAH BINTI FAIZIL",
+            "RAUDHATU JANNA BINTI MOHD SAPAWI",
+            "SHAH ANIQ RYQAL BIN SHAH ADLI",
+            "UMMU QISYA BINTI MOHAMAD RAIS RAHIMY",
+            "YUSRAHANIS NABIHAH BINTI YUSMANEZAM",
+            "ZILL ZUFAR BIN MOHD ZAIDI"
+        ],
+        "BETA": [
+            "ADIRA AZZAHRA WAN AZLAN BINTI ABDUL HAKIM",
+            "AHMAD ASY SYAQQUR BIN AHMAD SYAHID",
+            "AHMAD FAEEZI BIN AHMAD FADZLI",
+            "AHMAD FURQAN BIN BUSTAMAM",
+            "AHMAD HUD FIRAS BIN HASSAN",
+            "AISYA SHOLEHAH BINTI MOHAMMAD SOIB",
+            "AMMAR AMANSHAH BIN MOHD ASRI",
+            "ARISSA DZIHNI BINTI MOHD AZIF",
+            "AWAL AUFA BINTI MOHD HAMDHAN",
+            "EDINA CHEMPAKA BINTI LUTFI",
+            "FAWZANA HAARRA BINTI MOHD HAFIZAL",
+            "FIRAS UQAYL BIN MOHD HAFIZ",
+            "IFTIHANNAH BINTI MUHAMAD HANAPI",
+            "IMAN AMSYAR BIN KHAZWANHAFEZ",
+            "IMAN SAKINAH BINTI MOHD SAIFUL HAQIEMIE",
+            "LIYA WAFIYA LEAW BINTI MIKAIL LEAW WAI LOON",
+            "MUHAMMAD AIDIL ZAQUAN BIN RASHID",
+            "MUHAMMAD ANAQI ZHAFRAN BIN MOHD ZAIMY",
+            "MUHAMMAD AQQIB JEBAT BIN MOHD. SHARILL",
+            "MUHAMMAD AREEZ AYSAR BIN MOHD IZZUANDI",
+            "MUHAMMAD ASYRAF ARYAN BIN MOHD ZAIRY",
+            "MUHAMMAD HARRAZ MIKAEL BIN EHSANNAWAN",
+            "MUHAMMAD KHALIS BIN MOHD AL IMRAN",
+            "MUHAMMAD NASRULLAH BIN ABDULLAH",
+            "MUHAMMAD NAUFAL BIN ABDULLAH",
+            "MUHAMMAD NUR SOLIHIN BIN MUHAMMAD SYAQIR",
+            "MUHAMMAD TALHAH BIN ZUBIR",
+            "MUHAMMAD ZAFRAN KHAN BIN MOHD AZRUL",
+            "NUR AFEEYA ZAHIRA BINTI MOHD ASYRAF",
+            "NUR AISYATUR RADHIYAH BINTI MOHD SAIFUL",
+            "NUR AMANINA BINTI BADRUL HISHAM",
+            "NUR KHAIRAH HUMAIRA BINTI MUHAMAD AIZAD",
+            "NUR KHAISARA IMANI BINTI MOHD KHAIRI",
+            "NURZAWRAA QAYLA BINTI MUHAMMAD FIKKRI",
+            "QUSHAIRI RIZQIN BIN MOHD RIDZA",
+            "RAJA NURAINA ARISSA BINTI RAJA MOHAMAD JAMIL",
+            "RANA OMERA BINTI MOHD SHAHRIL",
+            "SITI RUMAISA BINTI MOHD SUHAIMI"
+        ],
+        "KRIPTON": [
+            "ADAM HARITH BIN AYDRIN",
+            "AFIF ZAHIN BIN MOHD ZAKI",
+            "AFIQ ARIFF BIN AZRUL ARIFF",
+            "AHMAD AKIF BIN ABD HALIM",
+            "AIRA HUMAIRA BINTI MOHAMMAD HATTA",
+            "AISYA ZAHRA BINTI HAIRUL AIMI",
+            "AUF ABRAHAM BIN MUHAMMAD HAFIZ",
+            "AYDEN ILHAN BIN MOHD HAZRI",
+            "AYSAARA SYAFIYYA BINTI MOHD SYAFA AZWAN",
+            "FAHIM IRSYAD BIN RIZUAN",
+            "HAWA UMAIRAH BINTI SAIFUL NIZAM",
+            "INARA HASYA BINTI IZHARSYAH",
+            "IRHAM KHAIRI BIN MOHD SHAFEE",
+            "IZZ AN NISA BINTI MOHD ZAKI",
+            "IZZ RAYYAN AMSYAR BIN MUHAMMAD ZAKI",
+            "MOHAMAD HARRAZ MIKHAIL BIN MOHAMAD HAFIZAL",
+            "MUHAMAD EZED DAYYAN BIN MUHAMAD ZAMANI",
+            "MUHAMMAD AMEER SOLIHIN BIN MOHD MUHSIN",
+            "MUHAMMAD ANAS AFEEF BIN MOHD MAHADIR",
+            "MUHAMMAD FAKHRUL RAZI BIN MOHD FARID",
+            "MUHAMMAD HARIZ BIN MUHAMMAD RIZUAN",
+            "MUHAMMAD JIBREEL BIN RAIS",
+            "MUHAMMAD QASYAF MIQAEEL BIN MOHD HAIREE ISMAIL",
+            "MUHAMMAD UQYLE EUSOOF BIN MOHD MARZOOKI",
+            "MUHAMMAD ZIYAD AL FATEH BIN MUHAMMAD FIRDAUS",
+            "NUR AJWA AQISHA BINTI MOHD KHAIRUL AZLAN",
+            "NUR ALAYNA MARISSA BINTI MOHD HAFIZ",
+            "NUR NADHIRAH BINTI MUHAMMAD HAKIMI",
+            "NUR NAZIRAH BINTI SUKOR",
+            "NURUL IRDINA BINTI MOHD SHAHRAN",
+            "PUTERA ADAM ZIYAD BIN MOHD NAZAIMI",
+            "PUTRA AHNAF ERDOGAN BIN MD ROZAMAN",
+            "QAYLA MEDINA BINTI AZRUL HISYAM",
+            "RAJA UMAYRAH BINTI RAJA NAZRUL AZAM",
+            "RUMAYSA SOFFIYA BINTI SAIFUL ANIZAM",
+            "SAFIYYA BINTI MOHAMAD AZAHAR",
+            "SHARIFAH AMEENA UMAIZA BINTI SYED AMEERUL SHAFIQUE",
+            "YUSRA BINTI HARIS SYARWANI"
+        ],
+        "HELIUM": [
+            "AADRIAN AFFENDY BIN AZNOR AFFENDDY",
+            "ADLIY FAHEEL BIN MUSTAFA",
+            "AHMAD FAWWAZ BIN MUHAMMAD FIRDAUS",
+            "ARIANA AZZAHRAH BINTI RIDUWAN",
+            "ATIF MUSTAQIM BIN MOHD RIZAL",
+            "FATIMAH AZ-ZAHRA BINTI MUHAMMAD WASEEM",
+            "HASSANAL IBRAHIM BIN DZULFIQAR",
+            "IZZ KHAIRY BIN MOHD KALAM AZAD",
+            "IZZNIE WAFA BINTI MOHD IZZAT",
+            "MUHAMAD FARIEZ IKHWAN BIN MUHAMAD YUNUS",
+            "MUHAMMAD ADAM ISKANDAR BIN MOHD SAUFI",
+            "MUHAMMAD ADIB HANAFI BIN ABDUL HAQ",
+            "MUHAMMAD ARFAN BIN IBRAHIM",
+            "MUHAMMAD DANY FAYYADHI BIN NOR FAIROOLIZUAN",
+            "MUHAMMAD FIZZ FARHAN BIN MOHAMAD FRAZIZUL",
+            "MUHAMMAD IZZUL BIN AZIZAN",
+            "MUHAMMAD NUR AQIF ADHA BIN ROSTAM",
+            "MUHAMMAD RAYYAN BIN ABDULLAH",
+            "MUHAMMAD SYAHRAN ADHAM BIN MUHAMMAD SYAHRIL",
+            "MUHAMMAD ZAFRAN BIN NORSAFARRUDIN",
+            "NAUFAL UKASYAH BIN AFFENDI",
+            "NUR AIRA UMAIRAA BINTI MOHD FAISAL",
+            "NUR ALYA QHALISHA BINTI SHEIKH MOHD NAJIB",
+            "NUR DARWISYAH HAWANI BINTI MOHD HANIFF",
+            "NUR DHIA SYAKIRA BINTI MUHAMAD SHAKIRIN",
+            "NUR QAISARAH BINTI MOHD AZRI",
+            "NUR QASEH QAISARA BINTI FAIZULLAH",
+            "NUR RAISHA SHAKIRA BINTI MUHAMMAD HAMIDI",
+            "NURUL HANA BINTI MOHD HAIROL",
+            "QAIRINA ADWA BINTI MUHAMAD ASMAWI",
+            "RAHADATUL AISY BINTI NORDIN",
+            "SAKINAH ADHWA' BINTI MOHD ZULHILMI",
+            "TENGKU MUHAMMAD FIRDAUS BIN TENGKU MOHD FARIZAL"
+        ],
+        "NEON": [
+            "AAIRA NUR SOFIA BINTI AHMAD NAZRI",
+            "ABDUL FATTAH BIN AHMAD LUQMAN FIRDAUS",
+            "ADAM DANIEL AZRIN BIN ABDUL JABBAR",
+            "ADAM NASRULLAH BIN ARMAN",
+            "ADRIANA ROSE SOPHIA BINTI ZULKIFLI",
+            "AFRA NAYLA BINTI MOHAMAD RUDY HAMIZIE",
+            "AHMAD FAYYADH BIN AHMAD HAFIZ",
+            "AHMAD ZAYYAN IZDIHAR BIN MOHD ROSDI",
+            "AISYAH SOFEA BINTI MUHAMMAD TAUFIK",
+            "IMAN ZAHRA BINTI ANWAR",
+            "ISYA ANNISA BINTI ISMAIL",
+            "KHALIL QAYYIM BIN NOOR AZAM",
+            "MOHAMMAD LUTFI HADI BIN MOHAMAD ZANISAHLI AZIZI",
+            "MUHAMMAD ADAM YUSUF BIN MOHD.AMIR FITRI",
+            "MUHAMMAD AL AHNAF NAUFAL BIN MOHD AMINUDDIN",
+            "MUHAMMAD 'AMMAR KASHIF BIN JALALUDIN",
+            "MUHAMMAD ASY SYAFIE BIN MOHD HILMI",
+            "MUHAMMAD DAYYAN BIN MUHAMMAD HAIKAL",
+            "MUHAMMAD FATTAH RIZQI BIN NUR FATHULLAH",
+            "MUHAMMAD HARRAZ BIN MOHAMMAD RIDZWAN",
+            "MUHAMMAD IMAN REZQI BIN NORIZAN",
+            "MUHAMMAD LUTHFI ZAFRAN BIN MOHD ZARUL AZRAN",
+            "MUHAMMAD MAAYISY BIN MUHAMMAD MUSTAQIM",
+            "MUHAMMAD RAZIN IRFAN BIN UMAR ABDUL AZIZ",
+            "NORHAURA NAZHIFA BINTI MOHAMAD FIKRI",
+            "NUR AULIYA BINTI MUHAMAD RAMDAN",
+            "NUR FATIHAH QAISARA BINTI SHAH RIZAN",
+            "NUR HANIS FAQIHAH BINTI MUHAMAD SYAFIQ",
+            "NUR HAZIQAH AMNI BINTI ISMAIL",
+            "NUR IMAN BINTI MOHD DZULHAFIFI",
+            "NUR LU'LU' ANZALNA BINTI NOR ZALANI",
+            "NUR QAISARA SOFEA BINTI MOHAMAD NAIM",
+            "NUR RAYQA ARISSYA BINTI MUHAMAD RUZAINI",
+            "NURSOFIYAH ASYURA BINTI MUHAMAD HANIF",
+            "SYAKIRA SAKINAH BINTI MOHD ANUAR",
+            "SYED RIZQI ARYAN BIN SYED AZLAN",
+            "TENGKU MIFZAL IRFAN BIN TENGKU MOHAMAD MUNIR",
+            "WAN NURUL ANIS AUNI BINTI MUHAMMAD FADZIL"
+        ],
+        "SIGMA": [
+            "ABDUL FATTAH BIN ABDUL QAYYUM",
+            "AHMAD HAMZAH BIN MOHD HAZIQ",
+            "AKIFA BINTI MOHAMAD SHAWAL",
+            "ALMA NAJAT BINTI MOHD ASYRAF AZRANEE",
+            "MUHAMMAD AIDAN BIN MOHD ZAMRI",
+            "MUHAMMAD AISY ZAIM BIN MUHAMMAD ANUAR",
+            "MUHAMMAD AMMAR BIN AMIR",
+            "MUHAMMAD AQIL MUEEZ BIN MUHAMMAD FAIZ",
+            "MUHAMMAD ARIEL RIDUAN BIN ABDUL RASYID",
+            "MUHAMMAD ASYRAF BIN ROSIDI",
+            "MUHAMMAD BIN NOR AFFANDI",
+            "MUHAMMAD FAHEM BIN ISMA NUWIRA",
+            "MUHAMMAD FAROUQ IMAN BIN MUHAMMAD MUSTAFFA",
+            "MUHAMMAD HARRAZ NAUFAL BIN HAMDAN",
+            "MUHAMMAD HASBI SYAMIL BIN SHAHFIZI",
+            "MUHAMMAD MUHAIMIN SARFRAZ BIN MOHD MUZAMIR",
+            "MUHAMMAD NOR ALIFF BIN AB RAHMAN",
+            "MUHAMMAD RAZIQ RYAIQAL BIN MD. ANUAR",
+            "MUHAMMAD RIZQI IRFAN BIN MOHD SAIDI",
+            "MUHAMMAD RIZQULLAH BIN FAIZZUL RIDZUAN",
+            "MUHAMMAD SHAFWAN HAKIMI BIN MUHAMMAD SUFYAN ASSAURI",
+            "MUHAMMAD SUFIUDDIN BIN MUHAMMAD SULAIMAN",
+            "NUR AULIA NAILAH BINTI NOORIZWAN",
+            "NUR DAMIA BATRISYA BINTI MOHD ELLMY",
+            "NUR FATHIAH NABIHAH BINTI KAMALNURNIZAM",
+            "NUR SABRYNA LUTHFYA BINTI MOHD ALIFF HAZIDI",
+            "NUR SAYYIDA NATASHA BINTI SYPOL BAHARI",
+            "NUR THAQIFAH QAISARAH BINTI ABDUL HAKIM",
+            "NURAISYA SHAFHAH BINTI NATASHA",
+            "ORKID AMELIA AUNI BINTI MOHD ROSDI",
+            "PUTERI QALESYA BINTI MOHD MOHAIMY",
+            "QISYA ALYA QAISARA BINTI FAIRULNIZAM",
+            "SARAH HUSNA BINTI MOHD HANIF",
+            "WAN KHALISH NUUAIM BIN W MOHD KAMARUL IKMAL",
+            "ZARA NUR HAANIM BINTI ROSMANZALAN"
+        ]
+    },
+    "4": {
+        "ALPHA": [
+            "AFIF NAUFAL BIN SARUL AFZAN",
+            "AHMAD SOLEH BIN MUHAMMAD KHIDIR",
+            "AHMAD ZIQRI BIN AHMAD FAIRUZ",
+            "AIMAN RIFAIE BIN SHAHARIZAN",
+            "AISYAH NUHA BINTI MOHAMAD RIDZUAN",
+            "AMIR RIZQI BIN YANI ANUAR",
+            "AMSYAR RAYYAN BIN MUHAMMAD AFIQ",
+            "AMZAR BIN AMINUDDIN",
+            "ARIANNA SOFEA BINTI MOHD KHAIRULNEZAM",
+            "AUNI HAZIQAH BINTI AHMAD FAIRUZS",
+            "DAHLIA MEDINA BINTI AHMAD MUZAMMI",
+            "DAIRAH HANA BINTI MUHAMAD NORIZAN",
+            "DHIA FALAH BINTI ASRUL AFFANDI",
+            "HARRAZ IMTIAZ BIN NUR ELIMTIAZ",
+            "JEBAT ISKANDAR BIN MOHD MAHADIR",
+            "MUHAMMAD AKIF IRFAN BIN FAIZAL",
+            "MUHAMMAD ASSYARAWI BIN MOHD ASRI",
+            "MUHAMMAD FIRASH AMSYAR BIN MOHD FIRDAUS",
+            "MUHAMMAD FIRASH ZAFRAN BIN SHAMSUL FAIS",
+            "MUHAMMAD IFFAT FAHIM BIN AZRAF",
+            "MUHAMMAD MARWAN BIN MOHD SABRI",
+            "MUHAMMAD MUSLIHUDDIN BIN IBRAHIM",
+            "MUHAMMAD NAFIS BIN MUHAMMAD NAIM",
+            "NUR AALIYAH ADRIANA BINTI MUHAMMAD AMIR IZZAT",
+            "NUR AIRIS HUMAIRA BINTI MUHIZAN",
+            "NUR ALEESHA SOFEA BINTI JALALUDIN",
+            "NUR ALEESYA BINTI NOORAMIN",
+            "NUR ALEESYA IRNEENA BINTI MUHAMMAD HAZREEQ",
+            "NUR AYISHA AISHAH BINTI ABDUL RAHIM",
+            "NUR KHAYLA SOFEA BINTI MOHD NAZRI",
+            "NUR QAIREEN QASRINA BINTI ABD MALEK",
+            "NUR WAFA HAKIM BINTI LOKMAN NUR HAKIM",
+            "NUR WARDAH HAKIM BINTI LOKMAN NUR HAKIM",
+            "NURSARAFINA BINTI MUHAMAD SUHAIREE",
+            "QASEH BAHIYAH BINTI IZWAN",
+            "RAUDHAH AMANI BINTI MOHD HAFIZ",
+            "SYAQEEF AQIL BIN MOHD SUNNY",
+            "TENGKU MIFZAL DANIYAL BIN TENGKU MOHAMAD MUNIR"
+        ],
+        "BETA": [
+            "AARIZ AZRAFF BIN RAZIQ",
+            "ABDUL HANNAN BIN MUHAMMAD NAZRI",
+            "AGHNIA NUR MELISSA BINTI MOHD KHAIRI",
+            "AIMAN HAIKAL BIN ANUARRIDUAN",
+            "AMIRA ALEESYA BINTI KHALID AHMAD",
+            "AMMAR FAIZEEN BIN MOHD YUSRI",
+            "ANUGERAH BIN KAMSANI",
+            "ARASYH IMAN BIN SHAHARUDIN",
+            "ARIF ANIQ BIN SANEY",
+            "ARIQAH NUR HANANIA BINTI ABDUL RAHIM",
+            "AUFA SOFIA BINTI MOHD FAIZ",
+            "AZREEL IMAN BIN AZMAN",
+            "AZZAHRA HUSNA BINTI MOHD JEFRI",
+            "DAMIA BALQIS BINTI MOHD NASRI",
+            "DHIA ALMA HAFFIYA BINTI MAHZANASUAD",
+            "DIANDRA ISFADHIA BINTI MUHAMAD DANIAL",
+            "IRDINA ARISSA BINTI RIZAM",
+            "KHAIRUL IMAN BIN ABDUL AZIM",
+            "KHALEEF UMAYR BIN ABDUL SABUR",
+            "MUHAMMAD ADAM AFIF BIN ABDUL QAYYUM",
+            "MUHAMMAD AQIL IQBAL BIN HAFISZAN",
+            "MUHAMMAD ARYAN ADHWA BIN ABAS",
+            "MUHAMMAD AZFAR FALAH BIN MOHD FARID",
+            "MUHAMMAD BIN FAISAL",
+            "MUHAMMAD DARWISY RAYQAL BIN MOHD ALIF FAHMI",
+            "MUHAMMAD FAIZ HADIF BIN NUR FATHULLAH",
+            "MUHAMMAD HARRAZ ISKANDAR BIN HUSSIEN",
+            "MUHAMMAD HAZIM BIN MOHD JANNATUL FIRDAUS",
+            "MUHAMMAD NAZEEF RAFEEF BIN MOHAMAD NAZERIN",
+            "MUHAMMAD NORHAMIZAN BIN MOHD HAFIZZ",
+            "NASRULLAH IRWAN SHAH BIN NORSAIFUL IRWAN SHAH",
+            "NUR AFIA BINTI ABDUL RAZAK",
+            "NUR EL FEA EISHAL BINTI MOHD NASRUL FAHMI",
+            "NUR NAURA RANIA BINTI MOHD IDHAM",
+            "NUR SUFIYA ZAHIRA BINTI MOHD SUFFIAN",
+            "NUUR HUDA DINI BINTI NUUR AZHIIM",
+            "RAISHA ZARA SOFIA BINTI MOHD RAFIQ",
+            "SHAHEEM RAZEEN BIN SHAZWAN REDZA"
+        ],
+        "KRIPTON": [
+            "AUNI FATHIYYAH BINTI MOHD TAUFIQ AMRI",
+            "BASYIRAH BALQIS BINTI MOHAMAD FAISAL",
+            "DAMIA AYBA BINTI MUHAMMAD SYAHID",
+            "HASYA AQILAH BINTI MOHD TAUFIQ ASRAF",
+            "IMAN ALISHA BINTI ABU ANAS",
+            "KHAYRA MELLINA BINTI MUHAMMAD FAIRUZ ISKANDAR",
+            "MAYA HUMAIRA BINTI MOHD NAZRUL HELMI",
+            "MUHAMMAD JUZAILI MUKHLIS BIN MOHMAD HISSAM",
+            "MUHAMMAD SYAFI ARIIQ BIN MOHAMAD SAUFI AMEER",
+            "MUHAMMAD UWAIS BIN TANTAWI",
+            "MUHAMMAD ZARIF AZKI BIN PUTEH",
+            "NADIRAH AZZAHRA BINTI NORSHAHRIZAM",
+            "NAURA ADDEENA BINTI MUHAMMAD FARAHAN",
+            "NIK AISY NAUFAL BIN NIK MOHD SAM",
+            "NUFAEL SHAHMI BIN MOHD SHAHFIK",
+            "NUR FATIHAH JANNAH BINTI MOHD SHAZREEN",
+            "NUR HAZIQAH BINTI KAMARUDDIN",
+            "NUR QAIRINA SAFIYYAH BINTI AZMAN",
+            "NURINA AISYA BINTI MOHAMMAD REDZUAN",
+            "QISYA BINTI MOHD HISAMMUDIN",
+            "RAZ ANAS AZHAD BIN RAZMIN SYAHMI",
+            "SITI KHADIJAH BINTI MOHD SYAHIDAN",
+            "TUN UQHAEL MATEEN BIN TUN MOHD.BARIQ",
+            "BASYIRAH IMTIYAZ BINTI MUHD BAIHAQI",
+            "DHIA QASEH SOFEA BINTI MUHAMMAD SYAHRIR",
+            "ED IMAN AUFA BIN ED ZIKRILLAH",
+            "MUHAMMAD AL FATEH QUIBAN BIN MOHD ASHRAF",
+            "MUHAMMAD ANAS SYAKIR BIN SHAMSUL ZAMRI",
+            "MUHAMMAD AQEEL BIN MOHD ABHAR",
+            "NOOR AMANI QALISHA BINTI ARMAN",
+            "NUR ADLINA HUSNA BINTI MOHD BADRUL HISYAM",
+            "NUR AFIFA ZAYYANI BINTI MUHAMMAD ZAHARI",
+            "NUR IZZ QISYA IMANINA BINTI SHAHROLNIZAM",
+            "SABRINA ALIAA BINTI EADIAMIN",
+            "SARRAH AMANI BINTI EADIAMIN",
+            "SOFEA ZARA AZALEA BINTI SYED HUSSEIN",
+            "UMAR FAIQ BIN FAIZAL"
+        ],
+        "HELIUM": [
+            "ADAM ISKANDAR BIN AZIZ",
+            "AISYA ZAHRA BINTI MOHD SHAHRIL",
+            "ALESHA FIRDAUS BINTI ASHRAFIK",
+            "ALIYA SARA AMANDA BINTI MOHD LOKMAN",
+            "ANIS QALEESYA BINTI MALIKI",
+            "AQEEL BIN MUHAMMAD HAZIQ",
+            "ARIF FIRDAN HAFIY BIN HAIRIL",
+            "DZULQARNAIN HAMDZAH BIN DZULFIQAR",
+            "ERHAM UMAR BIN HUSSEIN",
+            "HAWA KHADIJAH BINTI ABDULLAH",
+            "MAWAR AZZALEA AYUNI BINTI MOHD ROSDI",
+            "MOHAMMAD AR RAYYAN BIN ZAINUDDIN",
+            "MUHAMMAD ADAM AQIL BIN REMAN",
+            "MUHAMMAD ADAM HARIS BIN MOHD SAIFFUL NIZAM",
+            "MUHAMMAD AKASHAH BIN HANAFIAH",
+            "MUHAMMAD AMIN YASIN BIN SALAHUDDIN",
+            "MUHAMMAD DANIAL BIN ABDULLAH",
+            "MUHAMMAD DANISH AMSYAR BIN MOHD HUZAIFAH",
+            "MUHAMMAD QAISH IRFAN BIN MOHD ZAID",
+            "MUHAMMAD RIZQIN BIN ZULKIFLI",
+            "NUR ALISHA BINTI MUHAMMAD'AZIM",
+            "NUR AMMARA HUMAIRA BINTI MUSTAFA",
+            "NUR ARMEEYA SAFIA BINTI ANISARUDIN",
+            "NUR HANNAN KHADEEJA BINTI FAIZUL IZUDIN",
+            "NUR HAYFA HANNAH BINTI FARHAN",
+            "NUR INSYIRAH MAISARAH BINTI JAFFREE",
+            "NUR KHAYLA IMANI BINTI MOHAMAD HANAFI",
+            "NUR QARIRAH QISTINA BINTI NORHAFSHAM",
+            "NURAIN DAYANA BINTI NOR FAIROOLIZUAN",
+            "NURZARITH SOFEA BINTI MUHAMMAD RIDZWAN",
+            "NUWAYR HAKEEM BIN MOHD.HAMKA",
+            "RANIA AZZAHRAH BINTI RIDUWAN",
+            "SYAMIL FITRI BIN ABDULLAH",
+            "WAN NURAZALIA BINTI MIOR HISHAMUDDIN",
+            "YUSRYNA BATRISYA BINTI MAULUDIN NOOR",
+            "ZEREF RAYYAN BIN ELNIZAM",
+            "ZIYAD ZAKIR BIN ABDUL RAUF"
+        ],
+        "NEON": [
+            "ADAM TAN BIN NORAFZAHIZAD",
+            "ADELIA IMAN ZARA BINTI ABUZARR",
+            "AHMAD AQIL ZIYAD BIN ADZRIEN",
+            "AHMAD ARIQ FAYYADH BIN AHMAD SHAFIQ",
+            "AHMAD HAFIDZ BIN ABDUL QAYYUM",
+            "ANAS MUHAIMIN BIN MOHD RIZAL",
+            "ANNUR QAISA BINTI MOHD ZAMRI",
+            "ARRAYYAN BIN ROSLI",
+            "ASMA' FAATIHAH BINTI AZRUL NIZAM",
+            "DANISH AMZAR BIN AHMAD ADZLAN",
+            "DHIYA AMANDA DELISHA BINTI JEFFRI",
+            "DINDA HELENA BINTI MUHAMAD JASNI",
+            "FAYYADH AL-FITRI BIN RIZUAN",
+            "FAYYADH UKAIL BIN MOHD NOR RIEZUAN",
+            "IMAN AZRA BINTI MOHD FAIZAL",
+            "KHAIRIN AFIQ IKHWAN BIN KHAIRUL AMAR",
+            "MOHAMAD EZRAEEF BIN MOHAMAD HAFEZA",
+            "MUHAMAD DANIAL IMAN BIN ISMAIL",
+            "MUHAMMAD ASYRAF BIN MOHD ROSDI",
+            "MUHAMMAD IMRAN AMSYAR BIN MOHD ALIF",
+            "MUHAMMAD NASHRIQ UWAIS BIN MOHD YUNUS",
+            "MUHAMMAD NOR BIN ABDULLAH",
+            "MUHAMMAD SHAHIRFAN RAMADHAN BIN SHAHRUL ISKANDAR SHAH",
+            "MUHAMMAD SHAUQI ILMAN BIN MOHAMAD SHUKRI",
+            "MUHAMMAD SYAHMI FIRAS BIN MOHD FAIZ",
+            "MUHAMMAD UWAISH DANIS BIN FAKHRUL RIDHUAN",
+            "MUHAMMAD ZHARIF BIN AMIRUDDIN ALBAKRY",
+            "NUR ALISHA DAMIA BINTI MOHD RASHID",
+            "NUR ARIFAH HUMAIRA BINTI MOHD KAMARUL HAFIZ",
+            "NUR FARISA YASMIN BINTI FAIZAL TAN",
+            "NUR IRDINA HAZIQAH BINTI AHMAD ISMAIL",
+            "NUR QAISARA ARISSA BINTI MOHD MULHAZZA",
+            "RAJA ZAFRAN ISKANDAR BIN RAJA MOHA",
+            "TIA QISTINA LEAW BINTI MIKAIL LEAW WAI LOON",
+            "TUAH MUHAMAD KHALISH BIN MUHAMAD ABDUL BASID"
+        ],
+        "SIGMA": [
+            "AMANDA SOFEA BINTI MOHD ARIFF",
+            "AMMAR ASYRAAF BIN KHAIRUL AFENDY",
+            "ARINA QADEEJA BINTI SHAHRUL AZUAR",
+            "AUNI SAFIYYAH BINTI D.ZULKIFLI",
+            "CINTA ADAWIYAH BINTI AHMAD FUZAIMI",
+            "DAYINIE DELISHA BINTI MD DIAH",
+            "KHAIRA NUR MIRZA BINTI MOHD.KHAIRUDIN",
+            "MUHAMMAD ADAM ADRIENNE BIN MOHD SYARIZAL",
+            "MUHAMMAD AISY MUQRI BIN MOHD RAHMAD",
+            "MUHAMMAD AQIL HARRAZ BIN MOHD JAFRI",
+            "MUHAMMAD AQIL RAYQAL BIN MUHAMAD RUZAINI",
+            "MUHAMMAD FAZRIZAL BIN MOHD ROSMAINIAZLI",
+            "NUR ADRIANA AUNI BINTI MOHD NIZAM",
+            "NURIN NASUHA BINTI KAMSURI",
+            "ALIYAH NURKHALIDA BINTI MUHAMMAD KHAMAL",
+            "AQIEF MUQRI'IZZUDIN BIN SHAHNIZAN",
+            "HARRAZ FIQAR BIN MOHD RIZUAN",
+            "IAN ARFAN THIAN BIN ZULKARNAIN THIAN",
+            "MUHAMMAD ADAM MUQRI BIN SHAHRUL MUAZAM",
+            "MUHAMMAD AMMAR ASYRAF BIN IZUDDEEN",
+            "MUHAMMAD AMMAR JUFRI BIN MOHD AZURIN",
+            "MUHAMMAD AMSYAR BIN MUHAMMAD HARMONIZAM",
+            "MUHAMMAD ARIF IZZ AMSYAR BIN MOHD LOKMAN",
+            "MUHAMMAD BAZLI ZAHRIN BIN BASYIRUL",
+            "MUHAMMAD FAHIM SYAHMI BIN MOHD KHAIRUL KHAIRI",
+            "MUHAMMAD FAYYADH ARYAN BIN AZLAN",
+            "MUHAMMAD HAFFIZUDIN BIN MOHD MAZLI",
+            "NAURAH ALISYA BINTI SALAMULAMIN",
+            "NUR ARISSA MAISARA BINTI MUHAMMAD FIRDAUS",
+            "NUR MALISSA AISARA BINTI AHMAD FADZLI",
+            "NUR NATRAH NATASYA BINTI MOHD ZAIHAM",
+            "NUR QISYA BINTI MOHAMMAD FAZLI",
+            "QAIS AMIRI BIN SHUZAIMEE AIDY",
+            "QAY ANAQI BIN MOHD SYAFIQ",
+            "RUFAIDA BINTI MAHADZIR",
+            "WARDEENA LUTHFIYAH BINTI AHMAD SYAHID"
+        ]
+    },
+    "5": {
+        "ALPHA": [
+            "AHMAD DANIYAL BIN AHMAD HAFIZ",
+            "AINNUL MARDHIAH BINTI ZAINUDIN",
+            "AQIF ZIQRI BIN MOHD HAIRUL ANUAR",
+            "ARIF FAHRI SOLIHIN BIN HAIRIL",
+            "ARMAN RAIDI BIN ADISHAHROL",
+            "ASMA' BINTI MOHD SAIPUL ASRAFI",
+            "IMAN SOFEA BINTI MOHD IZHAR",
+            "MUHAMMAD AFIQ SYAZWAN BIN NASIR",
+            "MUHAMMAD AMMAR RIF'AN BIN MOHD FIRDAUS",
+            "MUHAMMAD DUBAIS ZHAFY BIN MOHD ZAMRI",
+            "MUHAMMAD FARID BIN MOHAMAD FAZZIL",
+            "MUHAMMAD FIRAS FIRDAUS BIN FAIZAL TAN",
+            "MUHAMMAD FIRASH ITQAN BIN MOHD HAIRY",
+            "MUHAMMAD ISYRAQ BIN ISMAIL",
+            "MUHAMMAD NUR HAFIZ BIN ABDUL HAMID",
+            "MUHAMMAD RAZIN FIRASH BIN UMAR ABDUL AZIZ",
+            "NAUFAL HAZIQ BIN NORNAIM",
+            "NOR AESHAH FATIHAH BINTI MOHD AZREN",
+            "NUR ADRA ALYSHA BINTI MOHD KHAIRUL AZLAN",
+            "NUR ARIANA BINTI AHMAD FITRI",
+            "NUR ATIKAH BINTI MUHAMMAD FUAD",
+            "NUR FARALIYANA BINTI UMAR",
+            "NUR FARISYA BINTI MOHD FARIZ",
+            "NUR IMAN RAISYA BINTI MOHD FADZIL",
+            "NUR IRDINA BATRIESYA BINTI MOHD FAIEZAL",
+            "NUR MELISSA IZARA BINTI AZMAN",
+            "NUR NUSAIBAH BINTI ZUBIR",
+            "NUR SAFIYA HUMAIRA' BINTI SOFHIAN",
+            "NUR ZALIKHA UMAIRAH BINTI KHAIROL HAFIZIL",
+            "QAISARA AUFA BINTI MUHAMAD ASMAWI",
+            "QAYREEN RAISHA BINTI MOHAMAD RUDY HAMIZIE",
+            "QISYA AZZAHRA BINTI MOHD HAFIZ",
+            "RAJA NURAINA AQILAH BINTI RAJA MOHAMAD JAMIL",
+            "RAYYAN AMSYAR BIN MOHD HAZIM",
+            "RIZQ NURZENIA SOFIA BINTI MOHD NURZAIDI",
+            "SHAREEFA RANIA ADREEANA BINTI ABDUL MU'IZZ",
+            "UMMU INSYIRAH BINTI MOHAMAD ZANISAHLI AZIZI",
+            "ZUBAIR YOUSEF BIN MOHAMAD ZAID"
+        ],
+        "BETA": [
+            "ABU UBAIDAH BIN NURUL AIZAM",
+            "ADAM MIKHAIL BIN MOHD NAZRUL HELMI",
+            "ADELIA ARIANA BINTI SHAH ADLI",
+            "AHMAD HARRAZ ANAQI BIN HAMDAN",
+            "ALISYA UMAIRAA BINTI MOHD FAISAL",
+            "ALIYA QALEESYA BINTI ABDULLAH",
+            "AMIR IMRAN BIN YANI ANUAR",
+            "AMMAR ASHRAF BIN ABDUL RAZIF",
+            "AMMAR ZHAFRAN BIN AZROL",
+            "AMYRA DAMIA BINTI MAHADIR",
+            "AZRA SHAFIYYA BINTI ZULKARNAIN",
+            "HANA MUMTAZ BINTI MOHD SYAIFUL FAIRUS",
+            "HARIZ ZAHRAN BIN HAIRUL FAIZAL",
+            "MUHAMMAD AMIR IRFAN BIN JALALUDIN",
+            "MUHAMMAD AMMAR NADHIF BIN YUSMAN",
+            "MUHAMMAD ASFA SOLIHIN BIN MUHAMMAD SYAFIQ",
+            "MUHAMMAD DANIYAL BIN ABU BAKAR",
+            "MUHAMMAD MUBIN BIN MUHAMMAD MUHSIN",
+            "MUHAMMAD RAYYAN RIZQI BIN ABD MALEK",
+            "NUHA NADHIRA BINTI MOHD NAWIR",
+            "NUR ADRIANA QAISARAH BINTI HAIROL AZMAN",
+            "NUR AMANI SAFIYA BINTI MUHAMAD",
+            "NUR DALISA HASEEFA BINTI MAZLAN",
+            "NUR DHANIYAH IRDINA BINTI MOHD FADLY",
+            "NUR FARAH IRDINA BINTI MOHAMAD FADHILAH",
+            "NUR IMAN ARISSA BINTI MUHAMAD RUKMAN",
+            "NUR IMNA IMAN BINTI MOHD IZZUANDI",
+            "NUR NADIA ANEESA BINTI MOHD FIDAUS",
+            "NUR NAYLI SHAHMIN BINTI MOHD SHAHFIK",
+            "NUR QAIREEN EZARA BINTI MOHD EZWIN AZRAAI",
+            "NUR QASEH BINTI MUHAMMAD NUR",
+            "NUR RAUDATUL HASANA BINTI ASHAR",
+            "NUR WAFA IMTINAN BINTI MOHD ROSDI",
+            "NURSOFIA BINTI MUHAMAD SUHAIREE",
+            "RAJA MUHAMMAD FAWWAZ BIN RAJA NAZRUL AZAM",
+            "SAIYIDATUL NAJEEHAH BINTI AZHAR",
+            "TIARA ANEZQA ADRIENNE BINTI MOHD SYARIZAL"
+        ],
+        "KRIPTON": [
+            "ADELIA AMANDA BINTI AMAR",
+            "ADELIA ZAHRA BINTI MOHD ZULKARNAIN",
+            "AFFAN ALTAIR BIN MUHAMMAD HAFIZ",
+            "AHMAD ILMAN HARIZ BIN MOHD SHAIFUL HIZAM",
+            "AIN NUR QAMARINA BALQIS BINTI SHAHRUL ANUAR",
+            "AISY QUSAIRY BIN ABDUL HADI",
+            "AMIRA ADELIA BINTI ABD HALIM",
+            "AMNI ALEESYA BINTI MOHD ARIFF",
+            "AMSYAR HAMSYARI BIN MOHAMMAD HATTA",
+            "ANIS WARDINA BINTI MOHD ZAKI",
+            "DHIA INSYIRAH BINTI KHANAFIAH",
+            "FARID IRFAN BIN MOHAMMAD IZZUDDIN",
+            "HANI SURAYA BINTI BAHSHARUDIN",
+            "KHALISH WAFIQ BIN AZUE ALFIZAN",
+            "MARISSA AISYAH BINTI NOR AMANI MAZRAN",
+            "MARYAM AMNI BINTI MOHD ARIEF",
+            "MIRZA FIRAZ BIN MOHAMED FIRDAUS",
+            "MUHAMMAD ADIB RAIYAN BIN MOHD HANAPIAH",
+            "MUHAMMAD ASHRAAF DARWISH BIN MUHD HAKIM",
+            "MUHAMMAD FIRAS AMSYAR BIN MOHAMAD",
+            "MUHAMMAD HAMZAH BIN JOHANIS ADI SATRIA",
+            "MUHAMMAD IZHAN ZALI BIN SHARHAN",
+            "MUSA AL-FATEH BIN MOHD FAIZAL",
+            "NUR ADRIANA HUMAIRA BINTI MOHAMAD HIALMEE",
+            "NUR ALEYSHA HUMAIRA BINTI MOHD HAIRI AFFENDY",
+            "NUR QAIREEN DAMIA BINTI YUSOF",
+            "NUR QASRINA HAZIQAH BINTI SHAHRIZAL",
+            "NURUL DARWISYAH BINTI MOHD SHAHRAN",
+            "QHAIRY IRSYAD BIN FAIRULNIZAM",
+            "TUAN AIRA AQEELA BINTI TUAN MOHD FIRDAUS",
+            "ZAARA ESHAL BINTI ZAINAL ABIDIN",
+            "ZIA ZAFEERA BINTI ZAINAL ABIDIN"
+        ],
+        "HELIUM": [
+            "ADAM HARITH BIN AZIZUL",
+            "AFRAH BINTI AIZAT",
+            "AHMAD IZZUL HAQIMI BIN MOHD HAFIS",
+            "AHMAD ZHAFRAN BIN AZHAR",
+            "AIMAN MUSTAQIM BIN MARZAFUAN",
+            "ALFISHAHR NUR KHALISHAH BINTI MUHAMMAD KHAMAL",
+            "AMMAR IRSYAD BIN MOHD MARUAN",
+            "HANA DAMIA YASMEEN BINTI KHAIRUL FAHMI",
+            "HARIS AIMAN BIN BADRUL HISHAM",
+            "HARIS HAQIMI BIN MOHD NAZID",
+            "HARITH ISKANDAR BIN HUSSEIN",
+            "MIKHAIL ARRAZI BIN ABDUL AZIZ",
+            "MIKHAIL BIN ISMAWI",
+            "MUHAMAD ADAM SHAFIQ BIN MOHD ZAIDI",
+            "MUHAMAD LATIF AMMAR BIN MOHD FAIZUL",
+            "MUHAMMAD AL AMIN BIN CHE MOHD BAHARIN",
+            "MUHAMMAD ALIF MUAZ BIN MUHAMMAD FAIZ",
+            "MUHAMMAD AMMAR BIN ABDUL HAFIZ",
+            "MUHAMMAD AQEEF DANIAL BIN HASHIM",
+            "MUHAMMAD DANISH BIN MUHAMAD YUNOS",
+            "MUHAMMAD FARID BIN AZLY HISHAM",
+            "MUHAMMAD HANIF BIN MOHD NAZRI",
+            "MUHAMMAD HARITH ZHAFRAN BIN ABD GAFAR",
+            "MUHAMMAD HAZIQ HAIKAL BIN HANIPAH",
+            "MUHAMMAD IZZ WAFRI BIN ABDUL HADI",
+            "MUHAMMAD LUQMAN NULHAFIZ BIN NORDIN",
+            "MUHAMMAD MIKHAEL BIN MUHAMAD HANAPI",
+            "MUHAMMAD THAQIF ANAQI BIN MOHD TAUFIQ",
+            "NADIAH NISA BINTI MOHD ANUAR",
+            "NUR DAMIA ARISSA BINTI MUHAMMAD AMIRUL",
+            "NUR ILLYANA MAISARAH BINTI ABDULLAH",
+            "NUR QAISARA BINTI HISYAMUDDIN",
+            "NUR QALESYA QISTINA BINTI NOOR HIDZUAN",
+            "NURHIDAYAH BINTI SYAHRUL NIZAM",
+            "PUTRI ADRIANA AZ-ZAHRA BINTI ZULKIFLI",
+            "SITI HAZIRAH HANA BINTI HAZAHAR",
+            "SITI NUR FARISYAH BINTI MOHD IRWAN"
+        ],
+        "NEON": [
+            "ADRIANA ADLINA BINTI AYDRIN",
+            "AHMAD MUHAMMAD BIN ARIFF HUSSEIN",
+            "AISYAH HUMAIRA' BINTI ZAIRUL AIZAN",
+            "ALYA NUR SYUHARA BINTI MOHD RADZI",
+            "AMANDA NUR HANA BINTI NOORAZAM",
+            "AMMAR RIZQIN BIN MOHD AKMAL",
+            "ANIQAH QAIREEN BATRISYA BINTI HASEDI",
+            "ANNUR FARISHA IMANI BINTI MOHD FAHSHAM",
+            "ARISSA HANNAH BINTI ADLEE",
+            "HADIF ARFAN BIN AHMAD FUAD",
+            "HANA INSYIRAH BINTI MOHAMMAD HISHAM",
+            "MARWAN SYAHEED BIN MOHD KHOUSHAINI",
+            "MUHAMAD FAHIEM ZAFRAN BIN MUHAMAD YUNUS",
+            "MUHAMMAD AISY ASLAM BIN MOHD RAZEAF",
+            "MUHAMMAD AKID ZAKIR BIN MOHD HAFIDZ",
+            "MUHAMMAD ALIF NAWFAL BIN FARIS IDWAN",
+            "MUHAMMAD AMMAR RIFQI BIN ABDUL RAHMAN",
+            "MUHAMMAD DANIAL BIN MUHAMAD YUNOS",
+            "MUHAMMAD FAIZ FIRDAUS BIN ABDUL HADI",
+            "MUHAMMAD IDHAM SYAZWAN BIN AZHARI",
+            "MUHAMMAD IKRAM BIN MOHAMAD",
+            "MUHAMMAD MIKAIL BIN ROSIDI",
+            "MUHAMMAD NUR IMAN BIN RAFEEQ",
+            "MUHAMMAD RAID DANISH BIN MOHD RAFIQ",
+            "MUHAMMAD RIYADH RIZQIN BIN SAIFUL ANIZAM",
+            "MUHAMMAD SYARIF RIZYAN BIN MOHD SHAHRIZAL",
+            "NOUR LUBAINA BINTI MOHD HAFIZ",
+            "NUR AMANI BINTI MUHAMMAD ASWAD",
+            "NUR AUNI BINTI MULKAAN",
+            "NUR HAZATUL ADHA BINTI ISMAIL",
+            "NUR IZZAH FARZANA BINTI ABU BAKAR",
+            "NUR QASRINA HUMAIRA BINTI KHAIRUL IDZWAN",
+            "PUTRI ARISSA ZAHRA BINTI AHMAD RAHIMI",
+            "QURRATU' AIMY BATRISHA BINTI IRWAN",
+            "RAYYAN FAYYADH BIN MOHAMMAD FAKHRUL RAZI",
+            "SHARIFAH MADINAH ALHABSHI BINTI SYED ABDUL RAHMAN",
+            "UMAR TAMURA BIN BADRU AT TAMAM"
+        ],
+        "SIGMA": [
+            "AIDIL AMIR BIN AZIZ",
+            "CINTA AMANI BINTI AHMAD FUZAIMI",
+            "HANA DAMIA BINTI MOHD NIZAM",
+            "HILNA NUR JANNAH BINTI MUHAMAD PUAZI",
+            "INTAN NUR NADHIRAH BINTI NASIRUDDIN",
+            "INTAN NUR NADHRAH BINTI NASIRUDDIN",
+            "MUHAMMAD DAYYIN UQAYL BIN MOHD HAFIZAN",
+            "MUHAMMAD FARIS BIN RAMLI",
+            "MUHAMMAD HASBULLAH SYAKIR BIN SHAHFIZI",
+            "MUHAMMAD NUR MIKAIL BIN MUHAMMAD SYAQIR",
+            "MUHAMMAD RAID BIN MOHD.IZMEER",
+            "MUHAMMAD ZHARIF ILMAN BIN MOHD HARMONI",
+            "NUR ARISSA HUMAIRA BINTI ZULKAMAL AZIZI",
+            "NUR IZZARA HAYFA BINTI ROHAIZI",
+            "NURZARA QISTINA BINTI MUHAMMAD FIKKRI",
+            "SHOFIYAH BINTI MOHAMMAD SOIB",
+            "ADAM ADRIAN BIN MOHD SAIFUL ADLI",
+            "AHMAD MUADZ BIN MOHD.SOFIE",
+            "ARIANA MIQAYLA BINTI ABDUL RAUF",
+            "ARYAN ZAYYAD BIN MOHD AZMIR",
+            "FARREL DARWISH BIN FAIZULLAH",
+            "KHAIRUNNISA HUSNA BINTI MUHAMMAD AHSWAR",
+            "MOHAMAD AMMAR HAKIMI BIN MOHAMAD ASHRAF",
+            "MUHAMMAD AL-FATIH BIN MOHD RASHID",
+            "MUHAMMAD IZHAR BIN MOHD SAAD",
+            "MUHAMMAD MUHAIMIN BIN SYUKRI",
+            "NUH MIRZA BIN ABDUL RAHIM",
+            "NUR ATHIRAH UMAIRAH BINTI MAT PAUZI",
+            "NUR SUMAYYAH BINTI MAZLAN",
+            "PUTRI EYSHA AZ-ZAHRA BINTI MD ROZAMAN",
+            "PUTRI NUR DELISHA BINTI MOHD SOBRI",
+            "RAFFIFA AIRA BINTI ROBY ANDIKA",
+            "SAFIYYA BATRISYA BINTI MUHAMMAD HAZWAN",
+            "SITI ZUHAIRAH BINTI ZULKIFLI",
+            "WAN KHALISH NUKMAN BIN W MOHD KAMARUL IKMAL",
+            "ZHAFRAN RAYYAN UKASYAH BIN MD SUHAIMI"
+        ]
+    },
+    "6": {
+        "ALPHA": [
+            "ADIFF MIKHAIL BIN AHMAD MUZAMMI",
+            "AHMAD ZUNNURAIN IMAN BIN ZULKARNAIN",
+            "AIRIS ARISSA BINTI RAZIQ",
+            "AISY NAUFAL BIN MOHD HAIRUL ANUAR",
+            "ESHA NURMAISARAH BINTI A.HAZAKI",
+            "EVA SUFYA BINTI MUHAMMAD FAIZAL",
+            "HANNAH HAZIQAH BINTI MOHD HANIM",
+            "HARITH AZFAR BIN SALAMULAMIN",
+            "HASYA ZAHIRAH BINTI MOHD NAJMI",
+            "IMRAN HAZIQ BIN KHAIRIL ANUAR",
+            "IZZUL WAFIY BIN MOHD IZZAT",
+            "MAISARAH AISYAH BINTI MUHAFIZ",
+            "MUHAMMAD ADAM DARWISY BIN MOHD RAFI",
+            "MUHAMMAD ADAM QUSAIRY BIN RASHID",
+            "MUHAMMAD AISY KHAN BIN MOHD AZRUL",
+            "MUHAMMAD IYAD ISYRAQ BIN MOHD JAMIL",
+            "MUHAMMAD WAHYU ILHAM BIN MOHD JEFRI",
+            "MUMTAZ ZAAHIYA BINTI ABDUL RAUF",
+            "NUR ALYA ALISHA BINTI MOHAMAD RIDZUAN",
+            "NUR AMNI BINTI MOHD DZULHAFIFI",
+            "NUR AN NAJJAH BINTI MOHAMAD AYUB HAN",
+            "NUR AWFIYAH BINTI MUHAMMAD FAHMY",
+            "NUR EINQASSANDRA BINTI MOHAMAD HAFEZA",
+            "NUR IMAN AMANI BINTI MOHD ALIF",
+            "NUR QISTINA DARWISYA BINTI MOHD RAFFIE",
+            "NUR QURRATU' AINI BINTI MOHD RIDZA",
+            "NUR SURFINA SALSABILA BINTI MOHD ALIFF HAZIDI",
+            "NUR ZAHRAA SOFEA BINTI MOHD NAZRI",
+            "NUR ZARA ADELIA BINTI HASHIM",
+            "NURWARDAH WAFIYYA BINTI KHAZWANHAFEZ",
+            "PUTERI ADELIA BINTI HAIRULAZHA",
+            "SHAFIY DANISH SHAZLAN BIN SHAHRIL AZLAN",
+            "SITI AMINAH BINTI ABDUL RASYID",
+            "SITI FIRZANAH BINTI ZULKIFLI",
+            "SYAFI NAWFAL BIN SAFAWI",
+            "ZARA NUR HUSNA BINTI ROSMANZALAN"
+        ],
+        "BETA": [
+            "ADAM DARWISH BIN AKHMAR",
+            "ADAM HARITH BIN MOHD JEFRI",
+            "AINNUR SYIFA BINTI MALIKI",
+            "AINUL MARDHIAH BINTI AZMUSYAZALI",
+            "ARIEF IZZUDDIN BIN JUNAIDI",
+            "DAMIA DELISHA BINTI MD DIAH",
+            "HANA KHAIRUNNISA BINTI ASLIZAL",
+            "HARRAZ MUQRI BIN KHAIRUL ANUAR",
+            "HUD BIN IDZWAN NIZAM",
+            "IRFAN HAZIQ BIN NOR ASRI",
+            "KHAIRUNNISA' KEISHA BINTI MOHD NOH",
+            "MIRZA HUMAIRAH BINTI CHE AZIZ",
+            "MUADZ RIFQY BIN NORSAMSUL AKMAR",
+            "MUHAMAD FIRAAS HAZIQ BIN MUHAMAD HILMI",
+            "MUHAMMAD A'ATHIF AS-SIDDIQ BIN MUHAMMAD SYAFIQ",
+            "MUHAMMAD AQIL NUQMAN BIN MOHD AL IMRAN",
+            "MUHAMMAD AZFAR RAIYAN BIN MOHD ZAIRY",
+            "MUHAMMAD FAHMI HAIKAL BIN JOHARI",
+            "MUHAMMAD FAYYAD HASIF BIN MOHD HAFIZAL",
+            "MUHAMMAD HABIB ANAQI BIN MOHAMAD FIKRI",
+            "MUHAMMAD HANIF BIN MOHD LOKTHMAN",
+            "MUHAMMAD ILYAS BIN MOHD ADAM",
+            "MUHAMMAD IMAN ANAQI SEAH BIN MUHAMMAD NAJMI SEAH",
+            "MUHAMMAD LUQMAN NUL HAKEEM BIN MOHD AZREN",
+            "MUHAMMAD NURZAFRAN BIN NOR AZAM",
+            "MUHAMMAD UZAIR BIN SHAHMAR",
+            "NUR ALYA SYAFIKA BINTI JASMAN",
+            "NUR AMALIA MAISARAH BINTI AZMI",
+            "NUR ANISAH BINTI AHMADZAMRI",
+            "NUR QAIRAH QAISARAH BINTI NORHAFSHAM",
+            "NUR WAFA IMANI BINTI MOHD AMRI",
+            "NURUL NAZIRA NASUHAH BINTI MAZLI AZAMUDIN",
+            "NURUL QURAISHA BINTI SHAHARIZAN",
+            "PUTERI MIRZA ALISHA BINTI SYAZRUL AMIN",
+            "SITI AISYAH BINTI MOHD NOOR",
+            "SOFIA TAN BINTI NORAFZAHIZAD"
+        ],
+        "KRIPTON": [
+            "ADAM SHAH AL LUQMAN BIN MUHAMMAD SHAH AL-MUZAMMIL",
+            "AMMAR HAZIKH BIN MOHD KHAIRULNEZAM",
+            "AUFA IMANI BINTI MOHD HAZRI",
+            "DIYANAH HANA AQILAH BINTI ZANAWI",
+            "KEISYA MARISSA BINTI MUHAMMAD FAIRUZ ISKANDAR",
+            "KHAYLA ARISSA BINTI KAMAL ARIFFIN",
+            "MOHAMED THAQIF BIN MOHD HISAMMUDIN",
+            "MOHAMMAD ALI IZZ RAYYAN BIN MOHAMMAD DZAHIR",
+            "MUHAMMAD AMRIN HADIF BIN AMIRULLAH",
+            "MUHAMMAD ANNUR SYAHR BIN MOHD SAFFUAN",
+            "MUHAMMAD ARYAN BIN MUHAMMAD ASWAD",
+            "MUHAMMAD ASSYAFIQ BIN MOHD ASRI",
+            "MUHAMMAD SOLIHIN BIN MUHAMMAD SUBHI",
+            "MUHAMMAD UWAIS ZULQARNAIN BIN MOHAMAD ZULKEFLEE",
+            "MUHAMMAD ZHARIFF AMSYAR BIN AMINUDDIN",
+            "NADIA BINTI MOHD DZULHALMI",
+            "NUR AQILAH SAFIRAH BINTI HAFISZAN",
+            "NUR FATIHAH BATRISYA BINTI SHAH RIZAN",
+            "NUR IMAN THAQIFAH BINTI GHOUSE MOHAMAD",
+            "NUR INSYIRAH DIANAH BINTI AHMAD FADZLI",
+            "NUR SUFIYYAH BINTI MOHD HAFIZ",
+            "NURUL AFRINA RANIA BINTI MOHD ASRUL",
+            "NURUL RANIAH HAURA BINTI MOHD AMIRUL",
+            "RAFIQ NAUFAL BIN SAIFUL NIZAM",
+            "RAYNA AZZAHRAH BINTI REDZUAN",
+            "RAYSHA IZZ ZARRA BINTI MOHD RIDZUAN",
+            "ZAHRA SAAFIA BINTI MANSUR",
+            "ZUHAYR BIN MUHAMMAD HAFIZ",
+            "ADELIA ARISHA BINTI SHAH ADLI",
+            "AISYAH HUMAYRA BINTI MOHD HAFIZ",
+            "ALEEYA QAISARA BINTI ABDUL HADI",
+            "MUHAMMAD QALIF ASYRAF BIN MOHD HAFIZ",
+            "MUHAMMAD RAYYAN NAUFAL BIN MOHD FAIZAL"
+        ],
+        "HELIUM": [
+            "AIDID ARSYAD BIN AMIRUL JOHN",
+            "AIRA DARWISYAH BINTI MOHD SHAHRIL",
+            "AISY ISHRAF BIN MOHD ROZANI",
+            "AKHTAR BUNYAMIN BIN AZMAN",
+            "AMSYAR ANUWAR MUZAFAR BIN ABDUL HAQ",
+            "ARISSA DAMIA BINTI MOHD SHAHRIL",
+            "BASYEERA NUR ZAHIYYA BINTI BASYIRUL",
+            "FARAH IRDINA BINTI RIZUAN",
+            "FATIN NUR HUSNA BINTI SUHAIMI",
+            "HANEEFAH ZAFEERAH BINTI AHMAD MARBAWI",
+            "MIRZATUL ALZ ZAHRA BINTI MUHAMAD BADRUL HISHAM",
+            "MOHAMMAD AQIF BIN MOHAMMAD FIRDAUS",
+            "MUHAMAD AL IMAN QHALLISH BIN MOHD ADIB",
+            "MUHAMAD KHALIQ IMAN BIN MOHD KHAIRI",
+            "MUHAMMAD ARIQ BIN IBRAHIM",
+            "MUHAMMAD DARWISY BIN MUHAMMAD HAIKAL",
+            "MUHAMMAD HARITH IRFAN BIN MOHD HARIS",
+            "MUHAMMAD IRFAN NAQIB BIN AZLAN",
+            "MUHAMMAD ZAFRUL BIN ABDULLAH",
+            "NABIHAH SAFIAH BINTI SANNUSI",
+            "NUR ADAWIYAH NATASHA BINTI SYPOL BAHARI",
+            "NUR ADELIA HAYFA BINTI MOHD AZMI",
+            "NUR AUNI BATRISYA BINTI SHAHRUL MUAZAM",
+            "NUR DYANA MAISARAH BINTI KARIM",
+            "NUR SYAFAWATI AMNI BINTI MUHAMAD SYAZWAN",
+            "NUREEN BALQIS BINTI MAZLAN",
+            "SARA MEDINA BINTI MOHAMMAD FAKHRUL RAZI",
+            "SITI NUR HANNAH BINTI IRWAN",
+            "SUFI SOFEA ARIESHA BINTI MOHD SUKAIRI",
+            "TIA QLARISSA SOFEA BINTI MOHD SUFIAN",
+            "WAN MUHAMMAD AMMAR AQIF BIN MUHAMMAD FADZIL",
+            "ZULAIKHA HALEEDA BINTI AFIZAN"
+        ],
+        "NEON": [
+            "ADAM BIN AZMIL",
+            "AHMAD FATHI BIN MUHAMMAD FIRDAUS",
+            "AHMAD ILHAM BIN HUZAIMY",
+            "AINNUR JANNAH BINTI ASRUL AFFANDI",
+            "AINUL MARDHIAH BINTI ABDUL QAYYUM",
+            "'AINUL MARDHIAH BINTI D.ZULKIFLI",
+            "AMNI AAFIYA BINTI MOHD MAHADIR",
+            "ARYAN SHAFIY BIN SHAMSUL ZAMRI",
+            "AWAL ASYRAF BIN MOHD HAMDHAN",
+            "DZALIQA HASANAH BINTI DZULFIQAR",
+            "EMILIA NEL'LY QISTINA BINTI MD SUHAIMI",
+            "FIRAS QUSYAIREE BIN MOHD HAIREE ISMAIL",
+            "HARITH ZILL QAYYIM BIN HANAFI",
+            "IFFAH HUMAIRA BINTI MUHAMMAD NAZRI",
+            "IRIS NEA ZAHRAA BINTI MOHAMMAD AZRIN",
+            "KHAILA WAHYU BINTI MOHD.IZMEER",
+            "KHAIRUL ADZIN AMSYAR BIN KHAIZULMI",
+            "MUHAMMAD AMSYAR BIN MOHAMMAD SUHAIZAM",
+            "MUHAMMAD AYSAR BIN MOHAMMAD DZULHISHAM",
+            "MUHAMMAD HAZIQ RAFIQI BIN AZIZAN",
+            "MUHAMMAD MUAZ BIN MOHMAD YUSNIEE",
+            "MUHAMMAD QALEEF MUKHRIZ BIN MASSHAMNI",
+            "MUHAMMAD SYAFIQ IRFAN BIN ZANIDI",
+            "NAYLI HUMAIRA BINTI RAFEEQ",
+            "NAZHAN ARIQ BIN NOR AZIZI",
+            "NUR ALYSA ERYNA BINTI SAZALY",
+            "NUR BALQIS BINTI MOHD FAIZAL",
+            "NUR DINI NABILAH BINTI AHMAD NAZRI",
+            "NUR FAZURA ADDAWIYAH BINTI ABDULLAH",
+            "NUR NAJIHAH NATASYA BINTI MOHD ZAIHAM",
+            "NUR QISTINA HAYATI BINTI ABDULLAH",
+            "PUTERI ANNUR SAFIYYA BINTI NORIZAN ZAINI",
+            "QISYA ALYA QAIRINA BINTI FAIRULNIZAM",
+            "SAIDATUL RADHIYAH BINTI MUHAMAD SYUKRI",
+            "SHAHZ NASRIQ BIN SHAHRUL NIZAM"
+        ],
+        "SIGMA": [
+            "ADAM IMRAN BIN MOHD FAIZAL",
+            "AHMAD THAQIF DANIAL BIN AZLISHAM",
+            "AHMAD ZARIF ILMAN BIN FARHAN",
+            "AIRIS ARYSSA BINTI ROZAIMAN",
+            "AQEEL AMSYAR BIN MUZAMZAM",
+            "ARYAN NIYAZ BIN MOHAMAD NORRIZAM",
+            "BASITHA NASIRA BINTI ABDULLAH",
+            "BILAL BIN MUHAMMAD HAZIQ",
+            "DAFINAH AMANI BINTI MOHD FARIS ADILI",
+            "IMAN NUR NAJLA BINTI IBRAHIM",
+            "KHAIRUL FIRAS BIN ABDUL AZIM",
+            "MARSYA FARHAWILDA BINTI MOHD MUHAIDI",
+            "MIKAEL HAQQ BIN MOHAMAD HAFIZ",
+            "MOHAMAD ADIB ARSYAD BIN MOHD ALI",
+            "MUHAMAD RAFIUDDIN BIN MUHAMAD RAMDAN",
+            "MUHAMMAD ADAM FITRI BIN TAJUL MOLOK",
+            "MUHAMMAD ASYRAF BIN MOHD FAIRUZ",
+            "MUHAMMAD ATIF IRFAN BIN MOHD ARIEF",
+            "MUHAMMAD AZARIEL SYAH BIN MD ASSERI",
+            "MUHAMMAD FAIQUR RASYID BIN NUR FATHULLAH",
+            "MUHAMMAD HAZIZI BIN MOHD HAIROL",
+            "MUHAMMAD TAREEF BIN FAHRURAZI",
+            "MUHAMMAD UMAR FAIEZ BIN ABDUL RAZAK",
+            "NAURAH HANAH BINTI MOHD KAMARUDDIN HELSA",
+            "NUR AISYAH HUMAIRA BINTI MOHD AZMIR",
+            "NUR ALEESYA BINTI MOHD.HAZIR",
+            "NUR ARISSA AMANI BINTI MOHD ASRI",
+            "NUR FARISYA BINTI MOHD ROSMAINIAZLI",
+            "NUR WARDAH IMANINA BINTI MOHD MAHADIR",
+            "NUR WARDINA QALIESYA BINTI NOR AZLAN",
+            "NURHAZZARINA BINTI HERMANG",
+            "NURUL HUSNA HUMAIRAH BINTI MOHD HAFIZZ"
+        ]
+    }
+};
+
+        function selectYear(year) {
+            currentYear = year;
+            
+            // Update active state
+            document.querySelectorAll('.year-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show class selection
+            document.getElementById('yearSelection').style.display = 'none';
+            document.getElementById('classSelection').classList.add('show');
+        }
+
+        function selectClass(className) {
+            currentClass = className;
+            currentStudents = studentData[currentYear][className];
+            
+            // Show student list
+            document.getElementById('classSelection').classList.remove('show');
+            displayStudents();
+        }
+
+        function displayStudents() {
+            const studentNamesDiv = document.getElementById('studentNames');
+            studentNamesDiv.innerHTML = '';
+            
+            currentStudents.forEach(name => {
+                const studentDiv = document.createElement('div');
+                studentDiv.className = 'student-name';
+                studentDiv.textContent = name;
+                studentNamesDiv.appendChild(studentDiv);
+            });
+            
+            document.getElementById('studentList').classList.add('show');
+        }
+
+        function backToYears() {
+            document.getElementById('classSelection').classList.remove('show');
+            document.getElementById('yearSelection').style.display = 'block';
+            document.querySelectorAll('.year-btn').forEach(btn => btn.classList.remove('active'));
+        }
+
+        function backToClasses() {
+            document.getElementById('studentList').classList.remove('show');
+            document.getElementById('classSelection').classList.add('show');
+        }
+
+        function copyNames() {
+            const namesList = currentStudents.join('\n');
+            
+            // Copy to clipboard
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(namesList).then(() => {
+                    showNotification('✅ Senarai nama berjaya disalin!');
+                }).catch(() => {
+                    fallbackCopyTextToClipboard(namesList);
+                });
+            } else {
+                fallbackCopyTextToClipboard(namesList);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showNotification('✅ Senarai nama berjaya disalin!');
+                } else {
+                    showNotification('❌ Gagal menyalin nama');
+                }
+            } catch (err) {
+                showNotification('❌ Gagal menyalin nama');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
